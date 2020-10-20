@@ -4,9 +4,30 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params.require(:user).permit(:name, :email, :password))
-    session[:user_id] = @user.id
+    @user = User.new(user_params)
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to '/welcome'
+    else
+      render 'users/new'
+    end
+
     # render plain: params[:user].inspect
-    redirect_to '/welcome'
+
+    #
+    # @article = Article.new(article_params)
+    #
+    # if @article.save
+    #   redirect_to @article
+    # else
+    #   render 'new'
+    # end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 end
