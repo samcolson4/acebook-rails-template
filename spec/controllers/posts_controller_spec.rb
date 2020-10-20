@@ -29,5 +29,10 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status(200)
     end
+
+    it "if user not signed in you get redirected to the homepage" do
+      get :index
+      expect(response).to redirect_to(welcome_url)
+    end
   end
 end
