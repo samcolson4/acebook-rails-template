@@ -22,6 +22,5 @@ class SessionsController < ApplicationController
   end
 
   def welcome
-    p current_user
   end
 end
