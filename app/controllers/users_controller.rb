@@ -7,5 +7,6 @@ class UsersController < ApplicationController
     @user = User.create(params.require(:user).permit(:name, :email, :password))
     session[:user_id] = @user.id
     # render plain: params[:user].inspect
+    redirect_to '/welcome'
   end
 end
