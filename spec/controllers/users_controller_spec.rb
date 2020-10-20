@@ -10,9 +10,14 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "POST #create" do
-    it "responds with 200" do
+    it "successful post and redirect to welcome page" do
       post :create, params: { user: { name: "Bob", email: "bob@bob.com", password: "1234567" } }
       expect(response).to redirect_to(welcome_url)
+    end
+
+    it "unsuccessful post due to incomplete input and not page redirect" do
+      post :create, params: { user: { name: "", email: "bob@bob.com", password: "1234567" } }
+      expect(response).not_to redirect_to(welcome_url)
     end
   end
 
