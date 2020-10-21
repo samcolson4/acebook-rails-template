@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#ruby '2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3.4'
@@ -35,11 +36,15 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  # gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
-  # gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
-  # gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks'
-  gem 'rspec-rails', '4.0.0.beta3'
-    # gem 'rspec-support', git: 'https://github.com/rspec/rspec-support'
+  gem 'rubocop'
+  gem 'rspec-core'
+  gem 'rspec-expectations'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
+  gem 'rspec-support'
+  gem "rails_best_practices"
+  gem 'simplecov'
+  gem 'simplecov-console'
 end
 
 group :development do
@@ -49,4 +54,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
