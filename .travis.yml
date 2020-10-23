@@ -19,4 +19,5 @@ deploy:
   app:
      master: dry-forest-26183
   run: "rake db:migrate"
+
   
