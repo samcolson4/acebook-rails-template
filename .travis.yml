@@ -10,13 +10,10 @@ rvm:
 script:
 - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
 - bundle exec rspec
-
 deploy:
   provider: heroku
   api_key:
-    secure: AywePpMipLCZmn59V3+lDRKehza6XsXeX13iv/L1QcCppzowDuFWS/PU0JupgZpCH1m+NCgbCDVdSVDAtv8QBqLf4Ms2N9WfPVEqKs+ktkQ9BvmvYLGqO7WnJKg0BdqQ/v3NjhOHyzobvUqP4E1sky1RPw5bH8MyjvP6lUarA1BaB0jQUQH67t4JLXjfFVHxXITTAPxa5uwYRraFrsJcd5UzdMoFpqetC4CCnppSKFAliGhDJKRSGiZx+SH3nuw/qc28PV9IBNJk/GuT9/UbjRIJB/A3VtTtSZ+l5rvyb4YU/d/K0cTxir52R8gM4Zvmi08kmMcBogNthCqWuCSUWva7GciDNbymRaDTwhKsQFqAU/QepKtr3KdPRzaWuQ9g6Y+sdMDy9+EjuBsvS8hTbtS5gLNZkG0XpedsOIeF0aSsdvQcf4zcnVwhA0qq3IMKrdkD1f+18+01rRReaPIICj7qT793CtNorZKtbfDvduRw0sk8AgWKYzjQogxblYPTjWEvYGYwSnNg113vFkAMZEtDP+C/WTDfpsZzPy5jn2M967uwPohWZQD+l2yw3I7QtE2X1XgFNMRd8mULRKAr0UIBppXv/FCw+NIGoF1sM+WLmcZlB/HUXxmbI/E0Jh2MeeB6szeuGzWjzlhDe89gGVStF1ok0ZZLqcMn0A99Psw=
-
+    secure: hgVCXUVDxCwiL/4QsQ6PEmKA12IppUoB8RMPZ6N/raFENM8Otbbki9wjS3szb/o9tq6OJkSajEfX7V5vf4pa/YAmD+qWeFgJWhfeVgZ5BhaikS3efVmKFJpPo8XdwbGVYay01gm2dsLtoAFsaTWve6VYsoGTpSiNUSp0Uus91SPTt2fLhxmvM0I+zChWn44f5THiNE8xc4C9SxqmQSithNUAjZ7NHrZDPfvvahXjbN1XRxFQZKGlM/I9pkgz24dhGS8WRMH2pLWP1ZopOYTel99BqNIjXNUO1uztHMn1bAz/G/ODqNT+bx7OaWhT6tAiqDjuF/lLgYb1KkL0CFuhKZeXfrJxr+edM5oo3qJjLr1ILBWTyqG4020WLjsaxgKGGEMBZFe2rpNtWd5LU4H1UAnUixq6oiS5zoDZpfrW9u44I+Wv1ZtavlIfRBRl32E0/VS58zF1IjzH36d9jmg7tgN+sq7UXRjOjBLcpfuCGoMaqn+JuJGV1Pa7Q1i8ACL5N9a5bcvqFNw2cKOtHk63x/U+ms7CaLubuMySu0KcqE2yKVJMvS0t5wK64IdRNYq8T7+gFmPwUL0cdoHxYegW8FdZRnwW28bdDDgzkjkxK5H9r/HFHWNUxzwuiNDpk0lERraNG/As5T8r1H3PEkPIdJVBaTeyeb49ReDphiGZmMw=
   app:
-     master: dry-forest-26183
-  run: "rake db:migrate"
-  
+    master: dry-forest-26183
+  run: rake db:migrate
