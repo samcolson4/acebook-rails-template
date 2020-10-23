@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
+:root {
+  --dinoheight: 100%;
+  --dinospeed: 3s;
+}
  body { 
   background-color: white;
   font-family: 'Quicksand', sans-serif;
@@ -74,4 +77,37 @@
 
 .push {
   height: 50px;
+}
+
+.dinosaurus{
+  position:absolute;
+  top:-600px;
+  
+  width:15%;
+  padding:2em;
+  
+  animation: drop var(--dinospeed) ease forwards;
+  animation-iteration-count:1;
+}
+
+@keyframes drop{
+  
+  from {
+    right:-1%;
+    top: var(--dinoheight);
+  }
+  to { 
+    right: 100%;
+    top: var(--dinoheight);
+  }
+
+}
+
+@keyframes leaves {
+  0% {
+    transform: scale(1.0)
+  }
+  100% {
+    transform: scale(2.0)
+  }
 }

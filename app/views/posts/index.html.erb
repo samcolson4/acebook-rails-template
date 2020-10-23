@@ -1,6 +1,9 @@
+
+
 <h1>Welcome <%= current_user.name %></h1>
+
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<div class="news_feed">
+<div class="news_feed" style="position:relative; z-index: 1;">
 <% @posts.each do |post| %>
   <div class="post"><p class="name"><%= User.find_by(id: post.user_id).name %>:</p>
   <p class="message"><%= post.message %> </p> 
@@ -26,16 +29,4 @@
   New post
 <% end %>
 
-<audio id="audio" allow="autoplay" src="https://www.televisiontunes.com/uploads/audio/Jurassic%20Park.mp3"></audio>
 
-<script>
-function play() {
-  var audio = document.getElementById("audio");
-  audio.currentTime = 18;
-  audio.play();
-}
-function stopPlay() {
-  var audio = document.getElementById("audio");
-  audio.pause()
-}
-</script>
