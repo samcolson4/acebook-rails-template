@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'orderly'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,6 +45,7 @@ group :development, :test do
   gem "rails_best_practices"
   gem 'simplecov'
   gem 'simplecov-console'
+  
 end
 
 group :development do
