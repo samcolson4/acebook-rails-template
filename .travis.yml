@@ -17,5 +17,5 @@ deploy:
     secure: AywePpMipLCZmn59V3+lDRKehza6XsXeX13iv/L1QcCppzowDuFWS/PU0JupgZpCH1m+NCgbCDVdSVDAtv8QBqLf4Ms2N9WfPVEqKs+ktkQ9BvmvYLGqO7WnJKg0BdqQ/v3NjhOHyzobvUqP4E1sky1RPw5bH8MyjvP6lUarA1BaB0jQUQH67t4JLXjfFVHxXITTAPxa5uwYRraFrsJcd5UzdMoFpqetC4CCnppSKFAliGhDJKRSGiZx+SH3nuw/qc28PV9IBNJk/GuT9/UbjRIJB/A3VtTtSZ+l5rvyb4YU/d/K0cTxir52R8gM4Zvmi08kmMcBogNthCqWuCSUWva7GciDNbymRaDTwhKsQFqAU/QepKtr3KdPRzaWuQ9g6Y+sdMDy9+EjuBsvS8hTbtS5gLNZkG0XpedsOIeF0aSsdvQcf4zcnVwhA0qq3IMKrdkD1f+18+01rRReaPIICj7qT793CtNorZKtbfDvduRw0sk8AgWKYzjQogxblYPTjWEvYGYwSnNg113vFkAMZEtDP+C/WTDfpsZzPy5jn2M967uwPohWZQD+l2yw3I7QtE2X1XgFNMRd8mULRKAr0UIBppXv/FCw+NIGoF1sM+WLmcZlB/HUXxmbI/E0Jh2MeeB6szeuGzWjzlhDe89gGVStF1ok0ZZLqcMn0A99Psw=
 
   app:
-     master: trex-acebook
+     master: dry-forest-26183
   run: "rake db:migrate"
