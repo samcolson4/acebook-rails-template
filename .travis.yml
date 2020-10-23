@@ -15,5 +15,7 @@ deploy:
   api_key:
     secure: hgVCXUVDxCwiL/4QsQ6PEmKA12IppUoB8RMPZ6N/raFENM8Otbbki9wjS3szb/o9tq6OJkSajEfX7V5vf4pa/YAmD+qWeFgJWhfeVgZ5BhaikS3efVmKFJpPo8XdwbGVYay01gm2dsLtoAFsaTWve6VYsoGTpSiNUSp0Uus91SPTt2fLhxmvM0I+zChWn44f5THiNE8xc4C9SxqmQSithNUAjZ7NHrZDPfvvahXjbN1XRxFQZKGlM/I9pkgz24dhGS8WRMH2pLWP1ZopOYTel99BqNIjXNUO1uztHMn1bAz/G/ODqNT+bx7OaWhT6tAiqDjuF/lLgYb1KkL0CFuhKZeXfrJxr+edM5oo3qJjLr1ILBWTyqG4020WLjsaxgKGGEMBZFe2rpNtWd5LU4H1UAnUixq6oiS5zoDZpfrW9u44I+Wv1ZtavlIfRBRl32E0/VS58zF1IjzH36d9jmg7tgN+sq7UXRjOjBLcpfuCGoMaqn+JuJGV1Pa7Q1i8ACL5N9a5bcvqFNw2cKOtHk63x/U+ms7CaLubuMySu0KcqE2yKVJMvS0t5wK64IdRNYq8T7+gFmPwUL0cdoHxYegW8FdZRnwW28bdDDgzkjkxK5H9r/HFHWNUxzwuiNDpk0lERraNG/As5T8r1H3PEkPIdJVBaTeyeb49ReDphiGZmMw=
   app:
-    master: dry-forest-26183
-  run: rake db:migrate
+     master: dry-forest-26183
+  run: "rake db:migrate"
+
+  
