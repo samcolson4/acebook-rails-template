@@ -16,7 +16,7 @@
     <p>
      <%= current_user.name + ":" %>
     </p>
-    <%= form.hidden_field :commenter, :commenter => current_user.id %> <br>
+    <%= form.hidden_field :user_id, :value => current_user.id %> <br>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
 
