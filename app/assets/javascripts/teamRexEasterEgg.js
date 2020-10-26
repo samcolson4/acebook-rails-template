@@ -17,7 +17,7 @@ function stopPlay() {
     myAudio.pause()
 }
 function animatosaurus() {
-    const myDiv = document.createElement('div')
+    var myDiv = document.createElement('div')
     myDiv.setAttribute('class', 'dinosaurus')
     myDiv.style.setProperty('--dinoheight', getRandomInt(window.innerHeight*2) + 'px')
     myDiv.style.setProperty('--dinospeed', getRandomInt(10) + "s")
