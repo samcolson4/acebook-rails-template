@@ -3,7 +3,7 @@
 <div class="news_feed">
 <% @posts.each do |post| %>
   <div class="post"><p class="name"><%= User.find_by(id: post.user_id).name %>:</p>
-  <p class="message"><%= post.message %> </p> 
+  <p class="message"><%= simple_format(post.message) %> </p> 
   <p class="post_time"><%= post.updated_at %></p>
   <p class="edited"><%= "Edited" if post.updated_at != post.created_at %> </p>
   <% if current_user.id == post.user_id %>
