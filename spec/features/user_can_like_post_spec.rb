@@ -9,7 +9,12 @@ feature 'like post' do
     expect(page).to have_content("1 like")
   end
 
-  # scenario 'A user can only like a post once' do
-
-  # end
+  scenario 'A user can only like a post once' do
+    sign_up
+    make_post
+    click_button("👍")
+    expect(page).to have_content("1 like")
+    click_button("👍")
+    expect(page).to have_content("0 likes")
+  end
 end
