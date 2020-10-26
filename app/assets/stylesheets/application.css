@@ -75,3 +75,59 @@
 .push {
   height: 50px;
 }
+
+.post {
+  max-width: 40em;
+  border:1px solid black;
+  border-radius: 25px;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
+
+.post .name {
+  font-weight: bolder;
+  line-height: 50%;
+}
+
+.post .edited {
+  font-style: italic;
+  font-size: 75%;
+}
+
+.post .delete_edit a {
+  text-decoration: none;
+  color: #3b5998;
+}
+  
+.post .delete_edit a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+.post .delete_edit a:hover {
+  text-decoration: underline;
+  color: #3b5998;
+}
+
+#new_post a {
+  text-decoration: none;
+  color: #3b5998;
+}
+  
+#new_post a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+#new_post a:hover {
+  text-decoration: underline;
+  color: #3b5998;
+}
+
+#new_post hr {
+  border: 1px solid #3b5998;
+  max-width: 40em;
+  /* padding: 0em 3em 0em 3em */
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+}

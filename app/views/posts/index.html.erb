@@ -1,31 +1,37 @@
-<h1>Welcome <%= current_user.name %></h1>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<div class="news_feed">
-<% @posts.each do |post| %>
-  <div class="post"><p class="name"><%= User.find_by(id: post.user_id).name %>:</p>
-  <p class="message"><%= post.message %> </p> 
-  <p class="post_time"><%= post.updated_at %></p>
-  <p class="edited"><%= "Edited" if post.updated_at != post.created_at %> </p>
-  <% if current_user.id == post.user_id %>
-        <p class="delete_button"><%= link_to 'delete', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></p>
-        <%= link_to "Edit post", edit_post_path(:id => post.id) %>
-      <% end %>
-  <%= button_to '👍', post_likes_path(:post_id => post.id), method: :post %>
-  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></p>
-  
- <label id=<%="post_flash_" + post.id.to_s %>  style="color:red;"> <%=flash[post.id.to_s]%></label>
+
+<h2>Welcome, <%= current_user.name %></h2>
+
+<div id="new_post">
+  <%= link_to new_post_path do %>
+    new post
+  <% end %>
+
   <hr>
-  <script>
-    setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-  </script>
-  </div>
-<% end %>
+  <br>
 </div>
 
-<%= link_to new_post_path do %>
-  New post
-<% end %>
-
-
+<div class="news_feed">
+    <% @posts.each do |post| %>
+      <div class="post">
+      <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+      <p class="message"><%= post.message %> </p> 
+      <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
+      <p class="post_time"><%= post.updated_at %></p>
+      <% if current_user.id == post.user_id %>
+            <div class="delete_edit"><%= link_to 'delete', post_path(post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %> |
+            <%= link_to "edit", edit_post_path(:id => post.id) %></div>
+          <% end %>
+      <div class="likes"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post %> 
+      <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+      
+      <label id=<%="post_flash_" + post.id.to_s %>  style="color:red;"> <%=flash[post.id.to_s]%></label>
+        <script>
+          setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+        </script>
+      </div>
+      <br>
+    <% end %>
+</div>

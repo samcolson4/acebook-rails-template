@@ -9,7 +9,7 @@ feature 'Log in' do
     fill_in "Password", with: "Bobobob"
     click_button "Login"
     expect(page).to have_current_path('/')
-    expect(page).to have_content("Welcome Bob")
+    expect(page).to have_content("Welcome, Bob")
     expect(page).to have_content("Log out")
   end
 

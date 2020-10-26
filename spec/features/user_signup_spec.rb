@@ -8,7 +8,7 @@ feature "Signup" do
     fill_in "Email", with: "bob@test.com"
     fill_in "Password", with: "Bobobob"
     click_button "Create User"
-    expect(page).to have_content("Welcome Bob")
+    expect(page).to have_content("Welcome, Bob")
   end
 
   scenario "Displays error when name, email or password not provided" do
