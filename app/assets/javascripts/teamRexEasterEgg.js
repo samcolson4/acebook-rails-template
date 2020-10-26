@@ -10,7 +10,7 @@ function getRandomInt(max) {
 
 
 function play() {
-  myAudio.volume = 0.2;
+  myAudio.volume = 1;
   myAudio.play();
 }
 function stopPlay() {
