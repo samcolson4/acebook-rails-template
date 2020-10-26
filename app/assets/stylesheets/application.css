@@ -90,6 +90,11 @@
   /* box-shadow: 2px 2px 2px 2px #788194; */
 }
 
+.post_time {
+  /* font-style: italic; */
+  font-size: 75%;
+}
+
 .post .name {
   font-weight: bolder;
   line-height: 50%;
@@ -166,4 +171,13 @@
 
 .like_button:hover {
   background-color: rgb(95, 131, 167);
+}
+
+.text_area {
+  resize: none;
+  width: 300px;
+  height: 100px;
+  border-radius: 16px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-family: 'Quicksand', sans-serif;
 }
