@@ -1,20 +1,11 @@
 // a key map of allowed keys
 var allowedKeys = {
-<<<<<<< HEAD
-  37: 'left',
-  38: 'up',
-  39: 'right',
-  40: 'down',
-  65: 'a',
-  66: 'b'
-=======
     37: 'left',
     38: 'up',
     39: 'right',
     40: 'down',
     65: 'a',
     66: 'b'
->>>>>>> f23e3814cf0466ce8823a50c3c1404c65aa97c3b
 };
 
 // the 'official' Konami Code sequence
@@ -25,34 +16,6 @@ var konamiCodePosition = 0;
 
 // add keydown event listener
 document.addEventListener('keydown', function(e) {
-<<<<<<< HEAD
-  // get the value of the key code from the key map
-  var key = allowedKeys[e.keyCode];
-  // get the value of the required key from the konami code
-  var requiredKey = konamiCode[konamiCodePosition];
-
-  // compare the key with the required key
-  if (key == requiredKey) {
-
-    // move to the next key in the konami code sequence
-    konamiCodePosition++;
-
-    // if the last key is reached, activate cheats
-    if (konamiCodePosition == konamiCode.length) {
-      activateCheats();
-      konamiCodePosition = 0;
-    }
-  } else {
-    konamiCodePosition = 0;
-  }
-});
-
-function raptor() {
-  var raptorNoise = document.createElement('audio')
-  raptorNoise.setAttribute('src', "http://www.amodinosaur.com/Uploads/file/20150914/1442235788535951.wav")
-  return raptorNoise
-  
-=======
     // get the value of the key code from the key map
     var key = allowedKeys[e.keyCode];
     // get the value of the required key from the konami code
@@ -79,23 +42,13 @@ function raptor() {
     raptorNoise.setAttribute('src', "http://www.amodinosaur.com/Uploads/file/20150914/1442235788535951.wav")
     return raptorNoise
 
->>>>>>> f23e3814cf0466ce8823a50c3c1404c65aa97c3b
 
 }
 
 function activateCheats() {
-<<<<<<< HEAD
-  var foot = document.getElementById('teamRexFooter')
-  foot.setAttribute('onmouseover', 'play(); teamRexAssemble();')
-  foot.setAttribute('onmouseleave', 'stopPlay();')
-  raptor().play();
-  alert("cheats activated");
-}
-=======
     var foot = document.getElementById('teamRexFooter')
     foot.setAttribute('onmouseover', 'play(); teamRexAssemble();')
     foot.setAttribute('onmouseleave', 'stopPlay();')
     raptor().play();
     alert("cheats activated");
 }
->>>>>>> f23e3814cf0466ce8823a50c3c1404c65aa97c3b
