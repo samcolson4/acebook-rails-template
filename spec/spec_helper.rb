@@ -22,9 +22,9 @@ require 'simplecov'
 require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::Console,
 ])
-SimpleCov.start
 
 require_relative './support/helpers/authentication'
 require_relative './support/helpers/posts'
