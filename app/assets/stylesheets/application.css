@@ -87,8 +87,14 @@
   padding-left: 1.25em;
   padding-right: 1.25em;
   padding-bottom: 0.6em;
-  /* box-shadow: 2px 2px 2px 2px #788194; */
+  -webkit-box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
 }
+
+/* .post :hover {
+  -webkit-box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39);
+} */
 
 .post_time {
   /* font-style: italic; */

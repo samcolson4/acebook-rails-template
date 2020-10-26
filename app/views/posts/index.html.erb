@@ -23,7 +23,7 @@
           data: { confirm: 'Are you sure?' } %> |
           <%= link_to "edit", edit_post_path(:id => post.id) %></div>
         <% end %>
-    <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:75%;"> <%=flash[post.id.to_s]%></label>
+    <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
     <div class="like"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
