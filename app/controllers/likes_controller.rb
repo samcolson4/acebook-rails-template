@@ -16,8 +16,4 @@ class LikesController < ApplicationController
     params[:post_id]).exists?
   end
 
-  def find_post
-    @like = Like.find(params[:post_id])
-  end
-
 end
