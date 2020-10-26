@@ -25,4 +25,5 @@
 .generators
 .rakeTasks
 /.idea/
-coverage/
+coverage/.resultset.json
+coverage
