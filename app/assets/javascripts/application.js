@@ -12,5 +12,4 @@
 //
 //= require rails-ujs
 //= require_tree .
-
-//= require konami
+//= require konami.js
