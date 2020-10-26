@@ -2,6 +2,6 @@
   <h1>Welcome <%= current_user.name %></h1>
   <% else %>
   <h1> Welcome </h1>
-  <%= button_to "Sign Up", '/users/new', method: :get%>
-  <%= button_to "Log In", '/login', method: :get%>
+  <%= button_to "Sign Up", '/users/new', method: :get, :class => "button"%>
+ <%= button_to "Log In", '/login', method: :get, :class => "button" %>
 <% end %>
