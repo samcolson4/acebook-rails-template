@@ -6,32 +6,32 @@
   <%= link_to new_post_path do %>
     new post
   <% end %>
-
   <hr>
   <br>
 </div>
 
 <div class="news_feed">
-    <% @posts.each do |post| %>
-      <div class="post">
-      <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
-      <p class="message"><%= post.message %> </p> 
-      <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
-      <p class="post_time"><%= post.updated_at %></p>
-      <% if current_user.id == post.user_id %>
-            <div class="delete_edit"><%= link_to 'delete', post_path(post),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %> |
-            <%= link_to "edit", edit_post_path(:id => post.id) %></div>
-          <% end %>
-      <div class="likes"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post %> 
-      <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
-      
-      <label id=<%="post_flash_" + post.id.to_s %>  style="color:red;"> <%=flash[post.id.to_s]%></label>
-        <script>
-          setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-        </script>
-      </div>
-      <br>
-    <% end %>
+  <% @posts.each do |post| %>
+    <div class="post">
+    <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+    <p class="message"><%= post.message %> </p> 
+    <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
+    <p class="post_time"><%= post.updated_at %></p>
+    <% if current_user.id == post.user_id %>
+          <div class="delete_edit"><%= link_to 'delete', post_path(post),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %> |
+          <%= link_to "edit", edit_post_path(:id => post.id) %></div>
+        <% end %>
+    <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:75%;"> <%=flash[post.id.to_s]%></label>
+
+    <div class="likes"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post %> 
+    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+    
+      <script>
+        setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+      </script>
+    </div>
+    <br>
+  <% end %>
 </div>
