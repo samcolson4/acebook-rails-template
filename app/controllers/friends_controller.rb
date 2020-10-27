@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
   def create
     @friend = Friend.new(friend_params)
-    redirect_to '/'
+    # redirect_to '/'
   end
 
   private

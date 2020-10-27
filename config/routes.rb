@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  resources :users do
-    resources :friends
-  end
+  resources :friends
   
 end
