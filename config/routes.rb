@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'friendlist/add_friend'
   root 'posts#index'
 
   resources :users, only: [:new, :create]

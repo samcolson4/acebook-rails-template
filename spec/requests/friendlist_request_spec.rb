@@ -4,7 +4,7 @@
 
 #   describe "GET /add_friend" do
 #     it "returns http success" do
-#       get "/friendlist/add_friend"
+#       get "/friends/add_friend"
 #       expect(response).to have_http_status(:success)
 #     end
 #   end
