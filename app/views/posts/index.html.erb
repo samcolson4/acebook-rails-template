@@ -32,7 +32,12 @@
       <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
         
         <p>Comment:</p>
-        <%= post.comments[index].body %>
+        <%= post.comments[index].body %> 
+        <% if current_user.id == post.comments[index].user_id %>
+        <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+        <%end%>
       </p>
     <% end %>  
 
