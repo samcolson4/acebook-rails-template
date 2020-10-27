@@ -22,13 +22,27 @@
 
     <%= form.submit %>
     <% end %> #end of commment form 
+
+    <h2>Comments</h2>
+    <% post.comments.each do |comment| %>
+      <p>
+        <strong>Commenter:</strong>
+        <%= User.find_by(id: comment.user_id).name %>
+      </p>
+     
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+    <% end %>  
+  ##################
   <% if current_user.id == post.user_id %>
         <p class="delete_button"><%= link_to 'delete', post_path(post),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></p>
         <%= link_to "Edit post", edit_post_path(:id => post.id) %>
       <% end %>
-  ################
+  
  <label id=<%="post_flash_" + post.id.to_s %>  style="color:red;"> <%=flash[post.id.to_s]%></label>
   <hr>
   <script>
