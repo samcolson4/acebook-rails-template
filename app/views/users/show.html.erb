@@ -1,0 +1,6 @@
+<%= @user.name  %>'s Profile Page
+<% if current_user.id != @user.id %>
+<%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
+
+<div style="color:forestgreen; font-style:italic; font-size:85%;"> <%=flash["confirm"]%></div>
+<% end %>
