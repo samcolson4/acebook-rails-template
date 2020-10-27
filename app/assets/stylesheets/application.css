@@ -14,6 +14,11 @@
  *= require_self
  */
 
+:root {
+    --dinoheight: 100%;
+    --dinospeed: 3s;
+}
+
  body { 
   background-color: white;
   font-family: 'Quicksand', sans-serif;
@@ -190,4 +195,28 @@
   border-radius: 8px;
   padding: 0.5em 0.5em 0.5em 0.5em;
   font-family: 'Quicksand', sans-serif;
+}
+
+.dinosaurus{
+    position:absolute;
+    top:-600px;
+
+    width:15%;
+    padding:2em;
+
+    animation: drop var(--dinospeed) ease forwards;
+    animation-iteration-count:1;
+}
+
+@keyframes drop{
+
+    from {
+        right:-1%;
+        top: var(--dinoheight);
+    }
+    to {
+        right: 100%;
+        top: var(--dinoheight);
+    }
+
 }
