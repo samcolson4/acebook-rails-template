@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Friendlist' do
+describe FriendsController do
+  describe "POST /"
 
 end
 
-# rails g model Friendlist user:references 

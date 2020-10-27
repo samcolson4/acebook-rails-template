@@ -1,4 +1,4 @@
 class FriendsController < ApplicationController
-  def add_friend
+  def create
   end
 end
