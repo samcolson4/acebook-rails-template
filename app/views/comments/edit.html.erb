@@ -1,0 +1,12 @@
+
+<%= form_with(model: [ @post, @comment ], local: true) do |form| %>
+<p>
+    <%= form.label :body, html: {autocomplete: "off"}  %><br>
+    <%= form.text_area :body, :value => @comment.body %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </p>
+
+  <%= form.submit %>
+  <% end %>
+
+  

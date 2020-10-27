@@ -37,6 +37,7 @@
         <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
+        <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
         <%end%>
       </p>
     <% end %>  
