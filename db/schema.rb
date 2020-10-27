@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_143332) do
   enable_extension "plpgsql"
 
   create_table "friends", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "requester_id", null: false

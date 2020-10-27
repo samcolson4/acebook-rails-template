@@ -12,7 +12,7 @@ describe FriendsController do
       
       allow(User).to receive(:find_by).and_return(user)
 
-      post :create, params: { friend: { requester_id: user.id, requestee_id: user2.id, status: "pending" } }
+      post :create, params: { friend: { requester_id: user.id, requestee_id: user2.id } }
       
       @friend = Friend.find_by(requester_id: user.id)
     end
