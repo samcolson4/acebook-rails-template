@@ -17,7 +17,7 @@ describe FriendsController do
       @friend = Friend.find_by(requester_id: user.id)
     end
 
-    it 'responds with 302' do
+    it 'redirects to user page' do
       expect(response).to have_http_status(302)
     end
 
