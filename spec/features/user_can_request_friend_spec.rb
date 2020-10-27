@@ -11,4 +11,11 @@ feature 'Add friend' do
     expect(page).to have_content("Friend request sent")
     expect(page).to have_current_path("/users/#{requestee.id}")
   end
+
+  scenario "Add friend button is not displayed on user's own page" do
+    sign_up
+    user = User.find_by(name: "Bob")
+    visit "/users/#{user.id}"
+    expect(page).not_to have_button("Add Friend")
+  end
 end
