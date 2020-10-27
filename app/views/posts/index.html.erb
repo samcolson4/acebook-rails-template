@@ -9,33 +9,38 @@
   <p class="message"><%= simple_format(post.message) %> </p> 
   <p class="post_time"><%= post.updated_at %></p>
   <p class="edited"><%= "Edited" if post.updated_at != post.created_at %> </p>
-  <p class="comment"> add a comment: </p>
+  
 
-  ###############
+  
   <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
     <p>
      <%= current_user.name + ":" %>
     </p>
     <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-    <%= form.label :body %><br>
+    <br>
     <%= form.text_area :body %>
-
     <%= form.submit %>
-    <% end %> #end of commment form 
+    <% end %>
+    
 
     <h2>Comments</h2>
-    <% post.comments.each do |comment| %>
-      <p>
-        <strong>Commenter:</strong>
-        <%= User.find_by(id: comment.user_id).name %>
-      </p>
+
+    <% (0...post.comments.length-1).each do |index|  %>
      
-      <p>
-        <strong>Comment:</strong>
-        <%= comment.body %>
+
+     
+      <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
+        
+        <p>Comment:</p>
+        <%= post.comments[index].body %>
       </p>
     <% end %>  
-  ##################
+
+
+
+
+
+
   <% if current_user.id == post.user_id %>
         <p class="delete_button"><%= link_to 'delete', post_path(post),
         method: :delete,
