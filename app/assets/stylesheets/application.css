@@ -89,12 +89,16 @@
   padding-bottom: 0.6em;
   -webkit-box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39); 
   box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* .post :hover {
   -webkit-box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39); 
   box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39);
 } */
+
+
 
 .post_time {
   /* font-style: italic; */
@@ -183,7 +187,7 @@
   resize: none;
   width: 300px;
   height: 100px;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 0.5em 0.5em 0.5em 0.5em;
   font-family: 'Quicksand', sans-serif;
 }
