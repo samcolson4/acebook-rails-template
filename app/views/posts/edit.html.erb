@@ -1,13 +1,12 @@
-<h1>Edit Post</h1>
-<%=flash['potato'] %>
+<h2>Edit post</h2>
 <%= form_with(model: @post, local: true) do |form| %>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4>
         <%= pluralize(@post.errors.count, "error") %> prohibited
         this article from being saved:
-      </h2>
+      </h4>
       <ul>
         <% @post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -18,12 +17,12 @@
 
   <p>
     <%= form.label :message, html: {autocomplete: "off"}  %><br>
-    <%= form.text_area :message, :value => @post.message %>
+    <%= form.text_area :message, :value => @post.message, :class => "text_area" %>
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Update Post', :class => "button" %>
   </p>
 
 <% end %>

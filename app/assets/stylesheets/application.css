@@ -81,6 +81,122 @@
   height: 50px;
 }
 
+.news_break {
+  line-height: 150%;
+}
+
+.post {
+  max-width: 40em;
+  border:2px solid #3b5998;
+  border-radius: 8px;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  padding-bottom: 0.6em;
+  -webkit-box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* .post :hover {
+  -webkit-box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39);
+} */
+
+
+
+.post_time {
+  /* font-style: italic; */
+  font-size: 75%;
+}
+
+.post .name {
+  font-weight: bolder;
+  line-height: 50%;
+}
+
+.post .edited {
+  font-style: italic;
+  font-size: 75%;
+}
+
+.post .delete_edit a {
+  text-decoration: none;
+  color: #3b5998;
+}
+  
+.post .delete_edit a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+.post .delete_edit a:hover {
+  text-decoration: underline;
+  color: #3b5998;
+}
+
+#new_post a {
+  text-decoration: none;
+  color: #3b5998;
+}
+  
+#new_post a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+#new_post a:hover {
+  text-decoration: underline;
+  color: #3b5998;
+}
+
+#new_post hr {
+  border: 1px solid #3b5998;
+  max-width: 40em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+}
+
+.button {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 16px;
+  min-width: 10em;
+}
+
+.button:hover {
+  background-color: #3b5998;
+  color: white;
+}
+
+.like_button {
+  min-width: 2.5em;
+  min-height: 2em;
+  border-radius: 16px;
+  border: none;
+  background-color: rgb(211, 216, 221);
+}
+
+.like_button:hover {
+  background-color: rgb(95, 131, 167);
+}
+
+.text_area {
+  resize: none;
+  width: 300px;
+  height: 100px;
+  border-radius: 8px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-family: 'Quicksand', sans-serif;
+}
+
 .dinosaurus{
     position:absolute;
     top:-600px;

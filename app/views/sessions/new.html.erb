@@ -1,11 +1,22 @@
+<<<<<<< HEAD
 
 <h1> Login </h1>
+=======
+<h2> login </h2>
+
+>>>>>>> master
 <%= form_tag '/login' do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
   
   <%= label_tag :password %>
   <%= password_field_tag :password %>
+<<<<<<< HEAD
   <%= submit_tag "Login" %> <br>
   <p style="color:red;"> <%= flash[:invalid_email] %> <%= flash[:invalid_password] %> </p>
+=======
+  <%= submit_tag 'Log in', :class => "button" %>
+  <p style="color:red;"> <%= flash[:invalid_email] %> <%= flash[:invalid_password] %> </p>
+
+>>>>>>> master
 <%end%>

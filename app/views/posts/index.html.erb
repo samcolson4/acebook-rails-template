@@ -1,67 +1,66 @@
-
-
-<h1>Welcome <%= current_user.name %></h1>
-
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<div class="news_feed" style="position:relative; z-index: 1;">
-<% @posts.each do |post| %>
-<div class="post"><p class="name"><%= User.find_by(id: post.user_id).name %>:</p>
-  <p class="message"><%= simple_format(post.message) %> </p> 
-  <p class="post_time"><%= post.updated_at %></p>
-  <p class="edited"><%= "Edited" if post.updated_at != post.created_at %> </p>
-  
 
-  
-  <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-    <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-    <br>
-    <%= form.text_area :body %>
-    <%= form.submit %>
-    <% end %>
-    
+<h2>Welcome, <%= current_user.name %></h2>
+<div id="new_post">
+  <%= link_to new_post_path do %>
+    new post
+  <% end %>
+  <br>
+  <br>
 
-    <h2>Comments</h2>
-
-    <% (0...post.comments.length-1).each do |index|  %>
-     
-
-     
-      <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
-        
-        <p>Comment:</p>
-        <%= post.comments[index].body %> 
-        <% if current_user.id == post.comments[index].user_id %>
-        <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-        <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
-        <%end%>
-      </p>
-    <% end %>  
-
-
-
-
-
-
-  <% if current_user.id == post.user_id %>
-        <p class="delete_button"><%= link_to 'delete', post_path(post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></p>
-        <%= link_to "Edit post", edit_post_path(:id => post.id) %>
-      <% end %>
-  
- <label id=<%="post_flash_" + post.id.to_s %>  style="color:red;"> <%=flash[post.id.to_s]%></label>
-  <hr>
-  <script>
-    setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-  </script>
-  </div>
-<% end %>
 </div>
 
-<%= link_to new_post_path do %>
-  New post
-<% end %>
+<div class="news_feed">
+  <% @posts.each do |post| %>
+    <div class="post">
+    <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+    <p class="message"><%= post.message %> </p> 
+    <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
+    <p class="post_time"><%= post.updated_at %></p>
+    <% if current_user.id == post.user_id %>
+          <div class="delete_edit"><%= link_to 'delete', post_path(post),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %> |
+          <%= link_to "edit", edit_post_path(:id => post.id) %></div>
+        <% end %>
+    <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
+    <div class="like"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
+    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+    
+      <script>
+        setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+      </script>
+    </div>
 
+    <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+      <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+      <br>
+      <%= form.text_area :body %>
+      <%= form.submit %>
+      <% end %>
+      
+  
+      <h2>Comments</h2>
+  
+      <% (0...post.comments.length-1).each do |index|  %>
+       
+  
+       
+        <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
+          
+          <p>Comment:</p>
+          <%= post.comments[index].body %> 
+          <% if current_user.id == post.comments[index].user_id %>
+          <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
+          <%end%>
+        </p>
+      <% end %>  
+  
+    
+    <br class="news_break">
+  <% end %>
+</div>
