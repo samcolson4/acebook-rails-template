@@ -31,16 +31,11 @@
       <script>
         setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
       </script>
-
-
         
     <div class="comments">
         <h3>Comments</h3>
-
-    
         <% (0...post.comments.length).each do |index|  %>
          
-    
         <div class="comment">
           <p><span class="user_comment"><a <%="href=/users/#{post.comments[index].user_id}"%> > <%= User.find_by(id: post.comments[index].user_id).name %>:</span> </a>
 
@@ -61,15 +56,15 @@
           <%= form.hidden_field :user_id, :value => current_user.id %> <br>
           <br>
           <%= form.text_area :body, class: 'comment_text' %>
-          <%= form.submit %>
+          <%= form.submit :comment, class: 'comment_submit' %>
           <% end %>
         </div>  
     </div>
-    </div>
+  </div>
 
 
-  
-    
+  </div>
+
     <br class="news_break">
   <% end %>
 </div>

@@ -112,7 +112,9 @@
 
 .post .name {
   font-weight: bolder;
-  line-height: 50%;
+  line-height: 20%;
+  font-size: 30px;
+  padding: -0.5em;
 }
 
 .post .edited {
@@ -120,17 +122,17 @@
   font-size: 75%;
 }
 
-.post .delete_edit a {
+.post a {
   text-decoration: none;
   color: #3b5998;
 }
   
-.post .delete_edit a:visited {
+.post a:visited {
   text-decoration: none;
   color: #3b5998;
 }
 
-.post .delete_edit a:hover {
+.post a:hover {
   text-decoration: underline;
   color: #3b5998;
 }

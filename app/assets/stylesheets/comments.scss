@@ -39,5 +39,24 @@
 }
 
 .user_comment {
-  font-size: 115%;
+  font-weight: bold;
+}
+
+.comment_submit {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  align-items: right;
+  // display: inline-block;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.comment_submit:hover {
+  background-color: #3b5998;
+  color: white;
 }
