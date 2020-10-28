@@ -10,9 +10,13 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "POST /" do
-    it "responds with 200" do
+    it "page redirect and stores the post in the database" do
+      User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
+      user = User.find_by(name: "Bob")
       allow(User).to receive(:find_by).and_return({ user: { name: 'Bob', email: 'bob@test.com' }})
-      post :create, params: { post: { message: "Hello, world!" } }
+      post :create, params: { post: { message: "Hello, world!", user_id: user.id, posted_to: user.id } }
+      post = Post.find_by(message: "Hello, world!")
+      expect(post).to be
       expect(response).to redirect_to(root_url)
     end
   end
@@ -88,3 +92,11 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 end
+
+#TODO: update our controller test to be able to pass in a user_id in our new column called 'posted_to'
+#TODO: create a new db migration to add thee column
+#TODO: make sure we add the alis of user_id to the user_wall_id like the requester_id task
+#TODO: feature test be able to navigate to your wall and make a post and for it to show on your wall. (wall here means your profile page)
+#TODO: feature test for being able to make a post on the main page and it show on your individual wall
+#TODO: feature test where another user posts on your wall and it shows up
+#TODO: feature test where you post on another uses wall but that post doesn't show up on your wall
