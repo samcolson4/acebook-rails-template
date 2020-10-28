@@ -13,3 +13,4 @@
 //= require rails-ujs
 //= require_tree .
 //= require konami.js
+//= require comments.js
