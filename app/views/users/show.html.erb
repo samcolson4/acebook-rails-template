@@ -17,6 +17,6 @@
 
 <% else %>
   <% @users.each do |user| %>
-  <p><%= user.name %></p>
+  <a <%="href=#{user.id}"%> ><%= user.name %></a>
   <% end %>
 <% end %>
