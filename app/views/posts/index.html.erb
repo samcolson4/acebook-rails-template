@@ -13,9 +13,6 @@
 
   
   <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-    <p>
-     <%= current_user.name + ":" %>
-    </p>
     <%= form.hidden_field :user_id, :value => current_user.id %> <br>
     <br>
     <%= form.text_area :body %>
