@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
   def authorised
     redirect_to '/welcome' unless logged_in?
   end
+
+  def self.existing_friendship?(requester, requestee)
+    existing_friend_1 = Friend.find_by requester_id: requester.id, requestee_id: requestee.id
+    existing_friend_2 = Friend.find_by requestee_id: requester.id, requester_id: requestee.id
+
+    existing_friend_1 != nil || existing_friend_2 != nil
+  end
 end
