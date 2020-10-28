@@ -1,3 +1,43 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.comments a {
+  // font-style: italic;
+  // font-size: 50%;
+}
+
+.comments  a {
+  text-decoration: none;
+  color: #3b5998;
+}
+  
+.comments a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+.comments a:hover {
+  text-decoration: underline;
+  color: #3b5998;
+}
+
+.comment {
+  background-color: #9ab9fb42;
+  border-radius: 8px;
+  padding: 0.2em 0.2em 0.2em 1em;
+  margin: 0.2em 0.1em 0.1em 0.35em;
+}
+
+.comment p {
+  line-height: 30%;
+}
+
+.comment_text {
+  resize: none;
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.user_comment {
+  font-size: 115%;
+}
