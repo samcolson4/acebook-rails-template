@@ -15,6 +15,7 @@ describe FriendsController do
       post :create, params: { friend: { requester_id: user.id, requestee_id: user2.id } }
       
       @friend = Friend.find_by(requester_id: user.id)
+      p @friend
     end
 
     it 'redirects to user page' do
