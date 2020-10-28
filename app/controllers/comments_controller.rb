@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     redirect_to root_path
   end
 
-
   def destroy
    @comment = Comment.find(params[:id])
    @comment.destroy 
@@ -15,7 +14,6 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    
   end
 
   def update
