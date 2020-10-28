@@ -9,4 +9,7 @@
 <% end %>
 
 
-<%= button_to 'view friends', root_path, :class => "button" %>
+<% @friends.each do |friend| %>
+  <p><%= friend.requestee_id %>,
+  <%= friend.requester_id %></p>
+<% end %>

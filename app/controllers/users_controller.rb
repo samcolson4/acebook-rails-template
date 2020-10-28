@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @friends = Friend.where("requester_id = ? or requestee_id = ?", [@user.id],[@user.id])
   end
 
   private
@@ -25,4 +26,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
+
 end
