@@ -24,6 +24,7 @@ feature 'Log in' do
     expect(page).to have_content("login")
   end
 
+
   scenario "user is told if email is incorrect" do 
     sign_up 
     click_link "Log out"

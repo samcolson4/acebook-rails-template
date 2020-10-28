@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_10_27_143332) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +24,17 @@ ActiveRecord::Schema.define(version: 2020_10_27_143332) do
     t.bigint "requestee_id", null: false
     t.index ["requestee_id"], name: "index_friends_on_requestee_id"
     t.index ["requester_id"], name: "index_friends_on_requester_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -53,6 +65,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_143332) do
 
   add_foreign_key "friends", "users", column: "requestee_id"
   add_foreign_key "friends", "users", column: "requester_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
