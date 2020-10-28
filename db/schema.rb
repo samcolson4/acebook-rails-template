@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_181106) do
+ActiveRecord::Schema.define(version: 2020_10_27_143332) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "friends", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "requester_id", null: false
+    t.bigint "requestee_id", null: false
+    t.index ["requestee_id"], name: "index_friends_on_requestee_id"
+    t.index ["requester_id"], name: "index_friends_on_requester_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -59,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_181106) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "friends", "users", column: "requestee_id"
+  add_foreign_key "friends", "users", column: "requester_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"

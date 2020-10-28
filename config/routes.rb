@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   get 'sessions/new'
 
   get 'login', to: 'sessions#new'
@@ -15,4 +15,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes
   end
+
+  resources :friends
+  
 end

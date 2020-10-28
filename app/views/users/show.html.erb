@@ -1,0 +1,24 @@
+<%= @user.name  %>'s Profile Page
+
+<% if existing_friendship?(current_user, @user) %>
+  <p>You are friends with <%= @user.name %>.</p>
+
+<% elsif current_user.id != @user.id %>
+  <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
+
+<% end %>
+
+<hr>
+
+<h2>friends:</h2>
+
+<% if @users.length == 0 %>
+  <p><%= @user.name %> has no friends.</p>
+
+<% else %>
+<div class="friend_names">
+  <% @users.each do |user| %>
+  <a <%="href=#{user.id}"%> ><%= user.name %></a>
+  <% end %>
+</div>
+<% end %>

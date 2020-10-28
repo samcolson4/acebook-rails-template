@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authorised
   helper_method :current_user
   helper_method :logged_in?
+  helper_method :existing_friendship?
 
   def current_user
     User.find_by(id: session[:user_id])
@@ -15,5 +16,12 @@ class ApplicationController < ActionController::Base
 
   def authorised
     redirect_to '/welcome' unless logged_in?
+  end
+
+  def existing_friendship?(requester, requestee)
+    existing_friend_1 = Friend.find_by requester_id: requester.id, requestee_id: requestee.id
+    existing_friend_2 = Friend.find_by requestee_id: requester.id, requester_id: requestee.id
+
+    existing_friend_1 != nil || existing_friend_2 != nil
   end
 end

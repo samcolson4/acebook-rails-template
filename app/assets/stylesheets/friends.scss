@@ -1,0 +1,17 @@
+// Place all the styles related to the Friends controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.friend_names {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+.friend_names a:visited {
+  text-decoration: none;
+  color: #3b5998;
+}
+
+.friend_names a:hover {
+  text-decoration: underline;
+}
