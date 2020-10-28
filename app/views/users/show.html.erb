@@ -8,8 +8,11 @@
 
 <% end %>
 
+<hr>
 
-<% @friends.each do |friend| %>
-  <p><%= friend.requestee_id %>,
-  <%= friend.requester_id %></p>
+<h2>friends:</h2>
+
+
+<% @users.each do |user| %>
+<p><%= user.name %></p>
 <% end %>

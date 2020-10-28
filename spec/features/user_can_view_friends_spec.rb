@@ -7,7 +7,6 @@ feature 'Viewing friends' do
     click_link("Log out")
     sign_up_as_potato
     visit "/users/#{requestee.id}"
-    click_button("view friends")
     expect(page).not_to have_content("Potato")
   end
 
@@ -18,7 +17,6 @@ feature 'Viewing friends' do
     sign_up_as_potato
     visit "/users/#{requestee.id}"
     click_button("Add Friend")
-    click_button("view friends")
     expect(page).to have_content("Potato")
   end
 end

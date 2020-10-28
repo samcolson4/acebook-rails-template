@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @friends = Friend.where("requester_id = ? or requestee_id = ?", [@user.id],[@user.id])
+    ids = unique_ids(@user)
+    @users = user_names(ids, @user)
   end
 
   private
@@ -27,8 +28,27 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password)
   end
 
-  def somefunction(user)
+  def unique_ids(user)
     friends = Friend.where("requester_id = ? or requestee_id = ?", [user.id],[user.id])
+
+    user_ids = []
+
+    friends.each { |friend| 
+      user_ids << friend.requestee_id
+      user_ids << friend.requester_id
+    }
+
+    uniq_ids = user_ids.uniq
+  end
+
+  def user_names(ids, user)
+    users = []
+
+    ids.each { |id|
+      users << User.find(id)
+    }
+    users.delete(user)
+    users
   end
 
 end
