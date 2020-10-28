@@ -1,13 +1,13 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <h2>Welcome, <%= current_user.name %></h2>
-
 <div id="new_post">
   <%= link_to new_post_path do %>
     new post
   <% end %>
   <br>
   <br>
+
 </div>
 
 <div class="news_feed">
@@ -32,6 +32,35 @@
         setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
       </script>
     </div>
+
+    <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+      <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+      <br>
+      <%= form.text_area :body %>
+      <%= form.submit %>
+      <% end %>
+      
+  
+      <h2>Comments</h2>
+  
+      <% (0...post.comments.length-1).each do |index|  %>
+       
+  
+       
+        <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
+          
+          <p>Comment:</p>
+          <%= post.comments[index].body %> 
+          <% if current_user.id == post.comments[index].user_id %>
+          <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
+          <%end%>
+        </p>
+      <% end %>  
+  
+    
     <br class="news_break">
   <% end %>
 </div>

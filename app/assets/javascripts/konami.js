@@ -39,7 +39,7 @@ document.addEventListener('keydown', function(e) {
 
 function raptor() {
     var raptorNoise = document.createElement('audio')
-    raptorNoise.setAttribute('src', "http://www.amodinosaur.com/Uploads/file/20150914/1442235788535951.wav")
+    raptorNoise.setAttribute('src', "https://www.amodinosaur.com/Uploads/file/20150914/1442235788535951.wav")
     return raptorNoise
 
 
