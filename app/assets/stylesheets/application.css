@@ -72,9 +72,11 @@
 }
 
 .content {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0 auto -50px;
   padding-left: 7em;
+  display: flex;
+  flex-direction: column;
 }
 
 .push {
@@ -102,7 +104,6 @@
   -webkit-box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39); 
   box-shadow: -2px 1px 15px 3px rgba(0,0,0,0.39);
 } */
-
 
 
 .post_time {
