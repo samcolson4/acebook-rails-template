@@ -1,6 +1,6 @@
 <%= @user.name  %>'s Profile Page
 
-<% if ApplicationController.existing_friendship?(current_user, @user) %>
+<% if existing_friendship?(current_user, @user) %>
   <p>You are friends with <%= @user.name %>.</p>
 
 <% elsif current_user.id != @user.id %>
