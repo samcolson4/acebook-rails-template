@@ -16,7 +16,9 @@
   <p><%= @user.name %> has no friends.</p>
 
 <% else %>
+<div class="friend_names">
   <% @users.each do |user| %>
-  <a class="user_link" <%="href=#{user.id}"%> ><%= user.name %></a>
+  <a <%="href=#{user.id}"%> ><%= user.name %></a>
   <% end %>
+</div>
 <% end %>
