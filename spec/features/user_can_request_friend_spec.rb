@@ -8,7 +8,7 @@ feature 'Add friend' do
     sign_up_as_potato
     visit "/users/#{requestee.id}"
     click_button("Add Friend")
-    expect(page).to have_content("Friend request sent")
+    expect(page).to have_content("You are friends with Bob.")
     expect(page).to have_current_path("/users/#{requestee.id}")
   end
 

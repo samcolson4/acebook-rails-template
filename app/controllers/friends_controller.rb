@@ -1,10 +1,8 @@
 class FriendsController < ApplicationController
   def create
-    # if !existing_friendship?(params[:friend][:requestee_id])
-      @friend = Friend.create(friend_params)
-      flash["confirm"] = "Friend request sent"
-      redirect_back fallback_location: '/'
-    # end
+    @friend = Friend.create(friend_params)
+    flash["confirm"] = "Friend request sent"
+    redirect_back fallback_location: '/'
   end
 
   private
