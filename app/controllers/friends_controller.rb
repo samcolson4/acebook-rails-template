@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
   def create
     @friend = Friend.create(friend_params)
-    flash["confirm"] = "Friend request sent"
+    # flash["confirm"] = "Friend request sent"
     redirect_back fallback_location: '/'
   end
 
@@ -11,8 +11,6 @@ class FriendsController < ApplicationController
   end
 end
 
-# TODO: Make it so in the user profile page that we use the existing friend logic to not show the button if they are friends
-# TODO: Need to make being a friend automatic so change that on the database
 # TODO: How to show friends list on the profile page
 # TODO: button on the user profile page to take you to their friends list
 # TODO: create a new view for the friends 'index' and function in controller to show only their friends
