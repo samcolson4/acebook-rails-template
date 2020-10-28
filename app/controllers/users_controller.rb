@@ -18,8 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    ids = unique_ids(@user)
-    @users = user_names(ids, @user)
+    friend_ids = unique_ids(@user)
+    @users = user_names(friend_ids, @user)
   end
 
   private
