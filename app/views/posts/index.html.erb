@@ -71,12 +71,12 @@
     $('#comment_off_toggle_<%=post.id%>').hide()
     $('.comments_<%=post.id%>').hide()
     $('#comment_off_toggle_<%=post.id%>').click(function(){
-      $('.comments_<%=post.id%>').hide()
+      $('.comments_<%=post.id%>').hide('swing')
       $('#comment_off_toggle_<%=post.id%>').hide()
       $('#comment_on_toggle_<%=post.id%>').show()
     })
     $('#comment_on_toggle_<%=post.id%>').click(function(){
-      $('.comments_<%=post.id%>').show()
+      $('.comments_<%=post.id%>').show('swing')
       $('#comment_on_toggle_<%=post.id%>').hide()
       $('#comment_off_toggle_<%=post.id%>').show()
     })
