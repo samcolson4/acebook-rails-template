@@ -6,7 +6,8 @@ feature "comments" do
       make_post
       fill_in "comment[body]", with: "First comment"
       click_button "Create Comment"
-      click_link "Destroy Comment"
+      allow(Time).to receive(:now).and_return(Time.now + 700)
+      click_link "delete"
       expect(page).not_to have_content "First comment"
     end
 
@@ -15,7 +16,8 @@ feature "comments" do
         make_post
         fill_in "comment[body]", with: "First comment"
         click_button "Create Comment"
-        click_link "Edit Comment"
+        allow(Time).to receive(:now).and_return(Time.now + 700)
+        click_link "edit"
         fill_in "comment[body]", with: "Second comment"
         click_button "Update Comment"
         expect(page).to have_content "Second comment"

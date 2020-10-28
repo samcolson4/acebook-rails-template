@@ -13,7 +13,8 @@
 <div class="news_feed">
   <% @posts.each do |post| %>
     <div class="post">
-    <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+    <h3 class="name"><a <%="href=/users/#{post.user_id}"%> ><%= User.find_by(id: post.user_id).name %></a></h3>
+
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
     <p class="post_time"><%= post.updated_at %></p>
@@ -25,8 +26,7 @@
         <% end %>
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
-    <div class="like"><%= button_to "👍 #{post.likes.count}", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
-    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
     
       <script>
         setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
@@ -42,8 +42,8 @@
          
     
         <div class="comment">
-          <p><span class="user_comment"><%= User.find_by(id: post.comments[index].user_id).name %>:</span> 
-            
+          <p><span class="user_comment"><a <%="href=/users/#{post.comments[index].user_id}"%> > <%= User.find_by(id: post.comments[index].user_id).name %>:</span> </a>
+
             <%= post.comments[index].body %> </p><p> </p>
             <p>
             <% if current_user.id == post.comments[index].user_id %>
