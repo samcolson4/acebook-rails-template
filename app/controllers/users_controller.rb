@@ -27,4 +27,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password)
   end
 
+  def somefunction(user)
+    friends = Friend.where("requester_id = ? or requestee_id = ?", [user.id],[user.id])
+  end
+
 end
