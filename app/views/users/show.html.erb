@@ -12,7 +12,11 @@
 
 <h2>friends:</h2>
 
+<% if @users.length == 0 %>
+  <p><%= @user.name %> has no friends.</p>
 
-<% @users.each do |user| %>
-<p><%= user.name %></p>
+<% else %>
+  <% @users.each do |user| %>
+  <p><%= user.name %></p>
+  <% end %>
 <% end %>
