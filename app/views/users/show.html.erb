@@ -7,9 +7,16 @@
   <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
 
 <% end %>
-
 <hr>
 <h2>posts:</h2>
+<%= form_for @post, html: { autocomplete: "off" } do |form| %>
+  <%= form.label :message %> <br>
+  <%= form.text_area :message, placeholder: "Post a message on the users wall :D"  %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= form.hidden_field :posted_to_id, :value => @user.id %> <br>
+  <%= form.submit "Submit" %>
+<% end %>
+<hr>
 <% @profile_posts.each do |post| %>
   <div class="post">
     <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
