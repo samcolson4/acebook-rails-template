@@ -5,16 +5,15 @@
 <% if existing_friendship?(current_user, @user) %>
   <p>You are friends with <%= @user.name %>.</p>
 
+
 <% elsif current_user.id != @user.id %>
-  <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
+  <%= button_to 'add friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "friend_button" %>
 
 <% end %>
-<hr>
-
-
-
-
-
+<br>
+<br>
+<section class="container">
+  <div class="left-half">
 
 <div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
@@ -120,12 +119,14 @@ $('html, body').animate({
   scrollTop: $(".comments_<%=@url_path_id%>").offset().top
 });
 </script>
+</div>
 
 
 
 
 
-<hr>
+<div class="right-half">
+
 <h2>friends:</h2>
 
 <% if @friends.length == 0 %>
@@ -138,3 +139,5 @@ $('html, body').animate({
   <% end %>
 </div>
 <% end %>
+</div>
+</section>
