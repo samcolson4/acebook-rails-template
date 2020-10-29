@@ -30,10 +30,17 @@
     
       <script>
         setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+        $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').hide()})
       </script>
+      <h3 id="comment_toggle_<%=post.id%>">comments</h3>   
+
+
+      <script>
+      $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').hide()})
+      </script> 
+      
+    <div class="comments_<%=post.id%>">
         
-    <div class="comments">
-        <h3>Comments</h3>
         <% (0...post.comments.length).each do |index|  %>
          
         <div class="comment">
@@ -68,3 +75,8 @@
     <br class="news_break">
   <% end %>
 </div>
+
+<script>
+
+    $('.comments').hide()
+</script>
