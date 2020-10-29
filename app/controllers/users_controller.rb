@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     friend_ids = unique_ids(@user)
     @friends = user_names(friend_ids, @user)
-    @profile_posts = get_profile_posts(params[:id])
+    @posts = get_profile_posts(params[:id])
     @post = Post.new
   end
 
