@@ -14,9 +14,8 @@
  *= require_self
  */
 
-:root {
-    --dinoheight: 100%;
-    --dinospeed: 3s;
+.yield {
+  /* padding-left: 1.5em; */
 }
 
  body { 
@@ -65,7 +64,9 @@
 
 .footer {
   /* position: fixed; */
-  padding-left: 11em;  
+  padding-left: 13em;  
+  /* padding-left: 8em; */
+
   padding-bottom: 1.5em;
   padding-top: 0em;
   bottom: 0;
@@ -80,7 +81,7 @@
 .content {
   min-height: 94.5vh;
   margin: 0 auto -50px;
-  padding-left: 7em;
+  padding-left: 8em;
   display: flex;
   flex-direction: column;
   font-weight: 300;
@@ -261,6 +262,11 @@
 
     animation: drop var(--dinospeed) ease forwards;
     animation-iteration-count:1;
+}
+
+:root {
+  --dinoheight: 100%;
+  --dinospeed: 3s;
 }
 
 #welcome {

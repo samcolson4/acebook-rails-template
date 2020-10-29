@@ -29,7 +29,7 @@ module Helpers
       click_button "Log In"
       fill_in "Email", with: "bob@test.com"
       fill_in "Password", with: "Bobobob"
-      click_button "Log in"
+      click_button "log in"
     end
 
     def log_in
@@ -37,7 +37,7 @@ module Helpers
       click_button "Log In"
       fill_in "Email", with: "bob@test.com"
       fill_in "Password", with: "Bobobob"
-      click_button "Log in"
+      click_button "log in"
     end
   end
 end
