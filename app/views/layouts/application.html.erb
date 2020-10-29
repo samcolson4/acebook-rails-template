@@ -19,6 +19,7 @@
       <div class="sidenav">
         <%= link_to "Home", root_path, method: :get %>
         <% if logged_in? %>
+          <%= link_to "Profile page", user_path(current_user.id), method: :get %>
           <%= link_to "Log out", logout_path, method: :post %>
         <% end %>
       </div>
