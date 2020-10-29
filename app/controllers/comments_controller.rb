@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
+    session[:referrer] = request.original_url
     redirect_back fallback_location: '/'
   end
 

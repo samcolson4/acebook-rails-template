@@ -5,11 +5,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    session[:referrer] = nil
     redirect_back fallback_location: '/'
   end
 
   def index
     @post = Post.new
+    @url_path_id = session[:referrer].match(/\/\d+\//).to_s.gsub("/", "") unless session[:referrer] == nil
     @posts = Post.all.order('created_at DESC')
   end
 
