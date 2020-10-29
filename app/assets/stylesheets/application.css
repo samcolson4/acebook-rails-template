@@ -27,6 +27,10 @@
   overflow-x: hidden;
  }
 
+ body h2 {
+  font-weight: 300;
+ }
+
  .site_header {
    color: #3b5998;
    text-decoration: none;
