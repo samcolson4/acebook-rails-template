@@ -93,14 +93,7 @@
   <% end %>
 </div>
 
-<script>
 
-    $('.comments').hide()
-    
-</script>
 <script>
-$(".comments_<%=@url_path_id%>").show()
-$('html, body').animate({
-  scrollTop: $(".comments_<%=@url_path_id%>").offset().top
-});
+scrollToLastComment(<%=@url_path_id%>);
 </script>

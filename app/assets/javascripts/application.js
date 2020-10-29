@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require_tree .
 //= require konami.js
+scrollToLastComment = (urlPath) => {
+  $(".comments_" + urlPath).show()
+$('html, body').animate({
+  scrollTop: $(".comments_" + urlPath).offset().top
+});
+}
