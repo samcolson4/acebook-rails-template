@@ -33,4 +33,19 @@ feature "Timeline" do
     click_button "Submit"
     expect(page).to have_content "Hello, world!"
   end
+
+  scenario "User can make a post on someone else's profile page and view it" do
+    sign_up
+    user1 = User.find_by(name: "Bob")
+    click_link("Log out")
+    sign_up_as_potato
+    user2 = User.find_by(name: "Potato")
+    visit "/users/#{user1.id}"
+    fill_in "Message", with: "Hello, world!"
+    click_button "Submit"
+    visit "/users/#{user1.id}"
+    expect(page).to have_content "Hello, world!"
+    visit "/users/#{user2.id}"
+    expect(page).not_to have_content "Hello, world!"
+  end
 end
