@@ -12,6 +12,7 @@
   box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
   padding: 4em;
   text-align: center;
+  max-width: 10em;
 }
 
 .friend_button {
@@ -38,13 +39,12 @@
   display: table;
   height: 100%;
   width: 100%;
-  max-width: 65em;
+  max-width: 75em;
 }
 
 .left-half {
   display: table-cell;
   padding-right: 2em;
-  max-width: 30em;
   width: fixed;
 }
 
@@ -53,4 +53,8 @@
   border-left: 2px solid #3b5998;
   padding-left: 2em;
   padding-right: 5em;
+}
+
+.right-half h2 {
+  font-weight: 300;
 }

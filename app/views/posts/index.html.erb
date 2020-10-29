@@ -30,9 +30,9 @@
     </div>  
     
 
-    <div class="comment_toggles">      
-      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments  ▴</h3> 
+   <div class="comment_toggles">      
+      <h3 id="comment_toggle_<%=post.id%>">comments ◂</h3>   
+      <h3 id="comment_toggle_off_<%=post.id%>">comments ▾</h3> 
     </div>
 
     <div class="comments_<%=post.id%>">
@@ -45,16 +45,16 @@
         
         <div class="comment">
           <p><span class="user_comment"><a <%="href=/users/#{post.comments[index].user_id}"%> > <%= User.find_by(id: post.comments[index].user_id).name %>:</span> </a>
-            <%= post.comments[index].body %> </p><p> </p>
-          <p>
+            <%= post.comments[index].body %> </p>
+         
             <% if current_user.id == post.comments[index].user_id %>
               <%= link_to 'delete', [post.comments[index].post, post.comments[index]],
               method: :delete,
               data: { confirm: 'Are you sure?' } %> |
               <%= link_to "edit", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
             <%end%>
-          </p>
-      </div>
+         
+        </div>
       
       <% end %>  
       <div class="comment_box">

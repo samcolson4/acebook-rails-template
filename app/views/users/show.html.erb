@@ -2,9 +2,8 @@
 
 <%= @user.name  %>'s Profile Page
 
-<% if existing_friendship?(current_user, @user) %>
-  <p>You are friends with <%= @user.name %>.</p>
-
+<% if existing_friendship?(current_user, @user) %> <br>
+  You are friends with <%= @user.name %>.
 
 <% elsif current_user.id != @user.id %>
   <%= button_to 'add friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "friend_button" %>
@@ -41,12 +40,12 @@
         <% end %>
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
-    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
+    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %>
     
-      
-      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments</h3> 
-
+    <div class="comment_toggles">      
+      <h3 id="comment_toggle_<%=post.id%>">comments ◂</h3>   
+      <h3 id="comment_toggle_off_<%=post.id%>">comments ▾</h3> 
+    </div>
       
     <div class="comments_<%=post.id%>">
     
@@ -123,11 +122,9 @@ $('html, body').animate({
 
 
 
-
-
 <div class="right-half">
 
-<h2>friends:</h2>
+<h2><%= @user.name %>'s friends:</h2>
 
 <% if @friends.length == 0 %>
   <p><%= @user.name %> has no friends.</p>
