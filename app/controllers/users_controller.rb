@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def get_profile_posts(profile_id)
-    Post.where("posted_to_id = ?", [profile_id])
+    Post.where("posted_to_id = ?", [profile_id]).order('created_at DESC')
   end
 
 end

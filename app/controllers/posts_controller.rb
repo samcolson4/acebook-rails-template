@@ -5,10 +5,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to root_url
+    redirect_back fallback_location: '/'
   end
 
   def index
+    @post = Post.new
     @posts = Post.all.order('created_at DESC')
   end
 

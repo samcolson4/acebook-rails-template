@@ -2,13 +2,13 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to root_path
+    redirect_back fallback_location: '/'
   end
 
   def destroy
    @comment = Comment.find(params[:id])
-   @comment.destroy 
-   redirect_to root_path
+   @comment.destroy
+   redirect_back fallback_location: '/'
   end
 
   def edit
