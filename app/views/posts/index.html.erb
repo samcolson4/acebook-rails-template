@@ -1,14 +1,14 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <h2>Welcome, <%= current_user.name %></h2>
-<div id="new_post">
-  <%= link_to new_post_path do %>
-    new post
-  <% end %>
-  <br>
-  <br>
 
-</div>
+<%= form_for @post, html: { autocomplete: "off" } do |form| %>
+  <%= form.label :message %> <br>
+  <%= form.text_area :message, placeholder: "Make a new post" %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= form.hidden_field :posted_to_id, :value => current_user.id %> <br>
+  <%= form.submit "Submit" %>
+<% end %>
 
 <div class="news_feed">
   <% @posts.each do |post| %>

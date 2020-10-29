@@ -7,7 +7,7 @@ class LikesController < ApplicationController
       @like = Like.find_by(user_id: current_user.id)
       @like.destroy
     end
-    redirect_to root_url
+    redirect_back fallback_location: '/'
   end
 
   private

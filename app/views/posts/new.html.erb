@@ -2,5 +2,6 @@
   <%= form.label :message %> <br>
   <%= form.text_area :message %>
   <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= form.hidden_field :posted_to_id, :value => current_user.id %> <br>
   <%= form.submit "Submit" %>
 <% end %>
