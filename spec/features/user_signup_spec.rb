@@ -7,7 +7,7 @@ feature "Signup" do
     fill_in "Name", with: "Bob"
     fill_in "Email", with: "bob@test.com"
     fill_in "Password", with: "Bobobob"
-    click_button "Create User"
+    click_button "sign up"
     expect(page).to have_content("Welcome, Bob")
   end
 
@@ -16,7 +16,7 @@ feature "Signup" do
     click_button "Sign Up"
     fill_in "Name", with: "Bob"
     fill_in "Password", with: "Bobobob"
-    click_button "Create User"
+    click_button "sign up"    
     expect(page).to have_content("Email can't be blank")
   end
 

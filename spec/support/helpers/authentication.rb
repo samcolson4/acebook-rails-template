@@ -6,7 +6,7 @@ module Helpers
       fill_in "Name", with: "Bob"
       fill_in "Email", with: "bob@test.com"
       fill_in "Password", with: "Bobobob"
-      click_button "Create User"
+      click_button "sign up"
     end
 
     def sign_up_as_potato
@@ -15,7 +15,7 @@ module Helpers
       fill_in "Name", with: "Potato"
       fill_in "Email", with: "potato@test.com"
       fill_in "Password", with: "mashed"
-      click_button "Create User"
+      click_button "sign up"    
     end
 
     def sign_up_log_in
@@ -24,7 +24,7 @@ module Helpers
       fill_in "Name", with: "Bob"
       fill_in "Email", with: "bob@test.com"
       fill_in "Password", with: "Bobobob"
-      click_button "Create User"
+      click_button "sign up"      
       click_link "Log out"
       click_button "Log In"
       fill_in "Email", with: "bob@test.com"

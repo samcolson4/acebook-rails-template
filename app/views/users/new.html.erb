@@ -1,3 +1,4 @@
+<div id="sign_up">
 <h2>sign up</h2>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -20,6 +21,6 @@
   <%= form.email_field :email %><br>
   <%= form.label :password %><br>
   <%= form.password_field :password %><br>
-  <%= form.submit %>
+  <%= form.submit 'sign up', :class => "button" %>
 <%end%>
-
+</div>
