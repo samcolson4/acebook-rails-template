@@ -14,14 +14,17 @@
 
 
 
-<h2>posts:</h2>
+
+
+<div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
-  <%= form.label :message %> <br>
-  <%= form.text_area :message, placeholder: "Make a new post" %>
-  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-  <%= form.hidden_field :posted_to_id, :value => @user.id %> <br>
-  <%= form.submit "Submit" %>
+  <%= form.text_area :message, placeholder: "Make a new post", class: "text_area_post", id: "post_test_area" %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> 
+  <%= form.hidden_field :posted_to_id, :value => @user.id %>
+  <%= form.submit "post", id: "post_button" %>
 <% end %>
+</div>
+<br>
 
 <div class="news_feed">
   <% @profile_posts.each do |post| %>
