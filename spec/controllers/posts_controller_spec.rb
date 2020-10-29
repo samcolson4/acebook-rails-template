@@ -92,9 +92,3 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 end
-
-
-#TODO: feature test be able to navigate to your wall and make a post and for it to show on your wall. (wall here means your profile page)
-#TODO: feature test for being able to make a post on the main page and it show on your individual wall
-#TODO: feature test where another user posts on your wall and it shows up
-#TODO: feature test where you post on another uses wall but that post doesn't show up on your wall
