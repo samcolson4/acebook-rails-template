@@ -27,7 +27,7 @@
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
     <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %>     
-    </div>
+    
 
     <div class="comment_toggles">      
       <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
