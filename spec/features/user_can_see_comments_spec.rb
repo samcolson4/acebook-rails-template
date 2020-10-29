@@ -5,7 +5,7 @@ feature "comments" do
   sign_up_as_potato
   make_post
   fill_in "comment[body]", with: "First comment"
-  click_button "Create Comment"
+  click_button "comment"
   expect(page).to have_current_path "/"
   expect(page).to have_content "First comment"
  end
@@ -16,7 +16,7 @@ feature "comments" do
   visit "/users/#{user.id}"
   make_post
   fill_in "comment[body]", with: "First comment"
-  click_button "Create Comment"
+  click_button "comment"
   expect(page).to have_current_path "/users/#{user.id}"
   expect(page).to have_content "First comment"
  end

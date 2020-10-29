@@ -5,7 +5,7 @@ feature "comments" do
       sign_up_as_potato
       make_post
       fill_in "comment[body]", with: "First comment"
-      click_button "Create Comment"
+      click_button "comment"
       click_link "delete"
       expect(page).to have_current_path "/"
       expect(page).not_to have_content "First comment"
@@ -17,7 +17,7 @@ feature "comments" do
       visit "/users/#{user.id}"
       make_post
       fill_in "comment[body]", with: "First comment"
-      click_button "Create Comment"
+      click_button "comment"
       # TODO: link names need to be refactored
       click_link "delete"
       expect(page).to have_current_path "/users/#{user.id}"
@@ -28,7 +28,7 @@ feature "comments" do
         sign_up_as_potato
         make_post
         fill_in "comment[body]", with: "First comment"
-        click_button "Create Comment"
+        click_button "comment"
         allow(Time).to receive(:now).and_return(Time.now + 700)
         click_link "edit"
         fill_in "comment[body]", with: "Second comment"
