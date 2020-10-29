@@ -2,13 +2,7 @@
 
 <h2>Welcome, <%= current_user.name %></h2>
 
-<%= form_for @post, html: { autocomplete: "off" } do |form| %>
-  <%= form.label :message %> <br>
-  <%= form.text_area :message, placeholder: "Make a new post" %>
-  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-  <%= form.hidden_field :posted_to_id, :value => current_user.id %> <br>
-  <%= form.submit "Submit" %>
-<% end %>
+<%= render "posts/post_form" %>
 
 <div class="news_feed">
   <% @posts.each do |post| %>
