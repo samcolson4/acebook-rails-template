@@ -22,6 +22,7 @@
  body { 
   background-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
   max-width: 100%;
   overflow-x: hidden;
  }
@@ -29,10 +30,11 @@
  .site_header {
    color: #3b5998;
    text-decoration: none;
+   font-weight: 550;
  }
 
  .site_header a:hover {
-  font-weight: 850;
+  /* font-weight: 850; */
  }
 
  .sidenav {
@@ -54,7 +56,7 @@
 }
 
 .sidenav a:hover {
-  font-weight: 850;
+  font-weight: 450;
 }
 
 .footer {
@@ -77,10 +79,11 @@
   padding-left: 7em;
   display: flex;
   flex-direction: column;
+  font-weight: 300;
 }
 
 .push {
-  height: 50px;
+  height: 1.5em;
 }
 
 .news_break {
@@ -112,7 +115,8 @@
 }
 
 .post .name {
-  font-weight: bolder;
+  /* font-weight: bolder; */
+  font-weight: 300;
   line-height: 20%;
   font-size: 30px;
   padding: -0.5em;

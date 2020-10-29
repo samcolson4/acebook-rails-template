@@ -25,6 +25,10 @@
   margin: 0.2em 0.1em 0.1em 0.35em;
 }
 
+.comments h3 {
+  font-weight: 300;
+}
+
 .comment p {
   line-height: 30%;
 }
@@ -39,7 +43,7 @@
 }
 
 .user_comment {
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .comment_submit {
