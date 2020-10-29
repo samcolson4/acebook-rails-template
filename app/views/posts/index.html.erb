@@ -29,14 +29,15 @@
     <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
     
       
-      <h3 id="comment_toggle_<%=post.id%>">comments</h3>   
+      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
       <h3 id="comment_toggle_off_<%=post.id%>">comments</h3> 
 
       
     <div class="comments_<%=post.id%>">
+    
     <script>
     $('.comments_<%=post.id%>').hide();
-    $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').show()})
+    $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').show('swing')})
     </script>     
 
         <% (0...post.comments.length).each do |index|  %>
@@ -70,21 +71,24 @@
 
   </div>
   <script>
-  $('#comment_toggle_off_<%=post.id%>').hide();
-  setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-  $('#comment_toggle_<%=post.id%>').click(function() {
-    $('.comments_<%=post.id%>').show('swing') 
+    $('#comment_toggle_off_<%=post.id%>').hide();
+    setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+    $('#comment_toggle_<%=post.id%>').click(function() {
     $('#comment_toggle_off_<%=post.id%>').show()
+
     $('#comment_toggle_<%=post.id%>').hide()
+
+    $('.comments_<%=post.id%>').show('swing')});
+
+    $('#comment_toggle_off_<%=post.id%>').click(function() { 
+    $('.comments_<%=post.id%>').hide('swing')
+    $('#comment_toggle_off_<%=post.id%>').hide() 
+    $('#comment_toggle_<%=post.id%>').show()
     });
+  </script>
 
 
-  $('#comment_toggle_off_<%=post.id%>').click(function() { 
-  $('.comments_<%=post.id%>').hide('swing')
-  $('#comment_toggle_off_<%=post.id%>').hide() 
-  $('#comment_toggle_<%=post.id%>').show()
-  });
-</script>
+
     <br class="news_break">
   <% end %>
 </div>
