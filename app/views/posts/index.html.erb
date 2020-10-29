@@ -30,14 +30,13 @@
     
       
       <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments </h3> 
+      <h3 id="comment_toggle_off_<%=post.id%>">comments  ▴ </h3> 
 
       
     <div class="comments_<%=post.id%>">
     
     <script>
-    $('.comments_<%=post.id%>').hide();
-    $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').show('swing')})
+      setStartingCommentState(<%=post.id%>)
     </script>     
 
         <% (0...post.comments.length).each do |index|  %>

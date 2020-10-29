@@ -35,3 +35,8 @@ $('#comment_toggle_off_' + urlPath).hide()
 $('#comment_toggle_' + urlPath).show()
 });
 }
+
+setStartingCommentState = (postId) => {
+  $('.comments_' + postId).hide();
+  $('#comment_toggle_' + postId).click(function() {$('.comments_' + postId).show('swing')})
+}
