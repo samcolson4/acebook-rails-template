@@ -30,7 +30,7 @@
     
       
       <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments</h3> 
+      <h3 id="comment_toggle_off_<%=post.id%>">comments </h3> 
 
       
     <div class="comments_<%=post.id%>">
@@ -71,20 +71,7 @@
 
   </div>
   <script>
-    $('#comment_toggle_off_<%=post.id%>').hide();
-    setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-    $('#comment_toggle_<%=post.id%>').click(function() {
-    $('#comment_toggle_off_<%=post.id%>').show()
-
-    $('#comment_toggle_<%=post.id%>').hide()
-
-    $('.comments_<%=post.id%>').show('swing')});
-
-    $('#comment_toggle_off_<%=post.id%>').click(function() { 
-    $('.comments_<%=post.id%>').hide('swing')
-    $('#comment_toggle_off_<%=post.id%>').hide() 
-    $('#comment_toggle_<%=post.id%>').show()
-    });
+          setListeners(<%=post.id%>)
   </script>
 
 
@@ -93,7 +80,8 @@
   <% end %>
 </div>
 
-
+<% if @url_path_id %>
 <script>
 scrollToLastComment(<%=@url_path_id%>);
 </script>
+<% end %>
