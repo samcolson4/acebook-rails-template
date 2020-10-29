@@ -22,17 +22,23 @@
  body { 
   background-color: white;
   font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
   max-width: 100%;
   overflow-x: hidden;
+ }
+
+ body h2 {
+  font-weight: 300;
  }
 
  .site_header {
    color: #3b5998;
    text-decoration: none;
+   font-weight: 550;
  }
 
  .site_header a:hover {
-  font-weight: 850;
+  /* font-weight: 850; */
  }
 
  .sidenav {
@@ -54,7 +60,7 @@
 }
 
 .sidenav a:hover {
-  font-weight: 850;
+  font-weight: 450;
 }
 
 .footer {
@@ -72,13 +78,16 @@
 }
 
 .content {
-  min-height: 100%;
+  min-height: 94.5vh;
   margin: 0 auto -50px;
   padding-left: 7em;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
 }
 
 .push {
-  height: 50px;
+  height: 1.5em;
 }
 
 .news_break {
@@ -104,15 +113,17 @@
 } */
 
 
-
 .post_time {
   /* font-style: italic; */
   font-size: 75%;
 }
 
 .post .name {
-  font-weight: bolder;
-  line-height: 50%;
+  /* font-weight: bolder; */
+  font-weight: 300;
+  line-height: 20%;
+  font-size: 30px;
+  padding: -0.5em;
 }
 
 .post .edited {
@@ -120,17 +131,17 @@
   font-size: 75%;
 }
 
-.post .delete_edit a {
+.post a {
   text-decoration: none;
   color: #3b5998;
 }
   
-.post .delete_edit a:visited {
+.post a:visited {
   text-decoration: none;
   color: #3b5998;
 }
 
-.post .delete_edit a:hover {
+.post a:hover {
   text-decoration: underline;
   color: #3b5998;
 }

@@ -6,15 +6,15 @@ feature 'like post' do
     make_post
     expect(page).to have_selector(:link_or_button, '👍')    
     click_button("👍")
-    expect(page).to have_content("1 like")
+    expect(page).to have_content("1")
   end
 
   scenario 'A user can only like a post once and unlike it' do
     sign_up
     make_post
     click_button("👍")
-    expect(page).to have_content("1 like")
+    expect(page).to have_content("1")
     click_button("👍")
-    expect(page).to have_content("0 likes")
+    expect(page).to have_content("0")
   end
 end

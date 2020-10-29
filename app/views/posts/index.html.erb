@@ -13,7 +13,8 @@
 <div class="news_feed">
   <% @posts.each do |post| %>
     <div class="post">
-    <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+    <h3 class="name"><a <%="href=/users/#{post.user_id}"%> ><%= User.find_by(id: post.user_id).name %></a></h3>
+
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
     <p class="post_time"><%= post.updated_at %></p>
@@ -25,42 +26,81 @@
         <% end %>
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
-    <div class="like"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
-    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
     
-      <script>
-        setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
-      </script>
-    </div>
-
-    <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-      <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-      <br>
-      <%= form.text_area :body %>
-      <%= form.submit %>
-      <% end %>
       
-  
-      <h2>Comments</h2>
-  
-      <% (0...post.comments.length-1).each do |index|  %>
-       
-  
-       
-        <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %> 
-          
-          <p>Comment:</p>
-          <%= post.comments[index].body %> 
-          <% if current_user.id == post.comments[index].user_id %>
-          <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
-          method: :delete,
-          data: { confirm: 'Are you sure?' } %>
-          <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
-          <%end%>
-        </p>
-      <% end %>  
-  
+      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
+      <h3 id="comment_toggle_off_<%=post.id%>">comments</h3> 
+
+      
+    <div class="comments_<%=post.id%>">
     
+    <script>
+    $('.comments_<%=post.id%>').hide();
+    $('#comment_toggle_<%=post.id%>').click(function() {$('.comments_<%=post.id%>').show('swing')})
+    </script>     
+
+        <% (0...post.comments.length).each do |index|  %>
+         
+        <div class="comment">
+          <p><span class="user_comment"><a <%="href=/users/#{post.comments[index].user_id}"%> > <%= User.find_by(id: post.comments[index].user_id).name %>:</span> </a>
+
+            <%= post.comments[index].body %> </p><p> </p>
+            <p>
+            <% if current_user.id == post.comments[index].user_id %>
+            <%= link_to 'delete', [post.comments[index].post, post.comments[index]],
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %> |
+            <%= link_to "edit", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
+            <%end%>
+            </p>
+        </div>
+        
+        <% end %>  
+        <div class="comment_box">
+        <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+          <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+          <br>
+          <%= form.text_area :body, class: 'comment_text' %>
+          <%= form.submit :comment, class: 'comment_submit' %>
+          <% end %>
+        </div>  
+    </div>
+  </div>
+
+
+  </div>
+  <script>
+    $('#comment_toggle_off_<%=post.id%>').hide();
+    setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+    $('#comment_toggle_<%=post.id%>').click(function() {
+    $('#comment_toggle_off_<%=post.id%>').show()
+
+    $('#comment_toggle_<%=post.id%>').hide()
+
+    $('.comments_<%=post.id%>').show('swing')});
+
+    $('#comment_toggle_off_<%=post.id%>').click(function() { 
+    $('.comments_<%=post.id%>').hide('swing')
+    $('#comment_toggle_off_<%=post.id%>').hide() 
+    $('#comment_toggle_<%=post.id%>').show()
+    });
+  </script>
+
+
+
     <br class="news_break">
   <% end %>
 </div>
+
+<script>
+
+    $('.comments').hide()
+    
+</script>
+<script>
+$(".comments_<%=@url_path_id%>").show()
+$('html, body').animate({
+  scrollTop: $(".comments_<%=@url_path_id%>").offset().top
+});
+</script>
