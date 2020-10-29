@@ -1,13 +1,14 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <h2>Welcome, <%= current_user.name %></h2>
-
+<div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
   <%= form.text_area :message, placeholder: "Make a new post", class: "text_area_post" %>
   <%= form.hidden_field :user_id, :value => current_user.id %> 
   <%= form.hidden_field :posted_to_id, :value => current_user.id %>
   <%= form.submit "post", id: "post_button" %>
 <% end %>
+</div>
 <br>
 <div class="news_feed">
   <% @posts.each do |post| %>
@@ -28,7 +29,7 @@
     <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
       
       <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments  ▴ </h3> 
+      <h3 id="comment_toggle_off_<%=post.id%>">comments  ▴</h3> 
   
     <div class="comments_<%=post.id%>">
     
