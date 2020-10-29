@@ -1,12 +1,26 @@
 require 'rails_helper'
 
 feature "comments" do 
-    scenario "user can delete comment" do 
+    scenario "user can delete comment from newsfeed" do
       sign_up_as_potato
       make_post
       fill_in "comment[body]", with: "First comment"
       click_button "Create Comment"
       click_link "Destroy Comment"
+      expect(page).to have_current_path "/"
+      expect(page).not_to have_content "First comment"
+    end
+
+    scenario "user can delete comment from profile page" do
+      sign_up_as_potato
+      user = User.find_by(name: "Potato")
+      visit "/users/#{user.id}"
+      make_post
+      fill_in "comment[body]", with: "First comment"
+      click_button "Create Comment"
+      # TODO: link names need to be refactored
+      click_link "Destroy Comment"
+      expect(page).to have_current_path "/users/#{user.id}"
       expect(page).not_to have_content "First comment"
     end
 

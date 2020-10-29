@@ -7,18 +7,74 @@
   <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
 
 <% end %>
+<hr>
+<h2>posts:</h2>
+<%= form_for @post, html: { autocomplete: "off" } do |form| %>
+  <%= form.label :message %> <br>
+  <%= form.text_area :message, placeholder: "Post a message on the users wall :D"  %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= form.hidden_field :posted_to_id, :value => @user.id %> <br>
+  <%= form.submit "Submit" %>
+<% end %>
+<hr>
+<% @profile_posts.each do |post| %>
+  <div class="post">
+    <h3 class="name"><%= User.find_by(id: post.user_id).name %></h3>
+    <p class="message"><%= post.message %> </p>
+    <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
+    <p class="post_time"><%= post.updated_at %></p>
+    <% if current_user.id == post.user_id %>
+      <div class="delete_edit"><%= link_to 'delete', post_path(post),
+                                           method: :delete,
+                                           data: { confirm: 'Are you sure?' } %> |
+        <%= link_to "edit", edit_post_path(:id => post.id) %></div>
+    <% end %>
+    <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
+
+    <div class="like"><%= button_to '👍', post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %>
+      <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'like' : 'likes'%></div>
+
+    <script>
+        setTimeout(function(){$('#post_flash_<%=post.id.to_s%>').fadeOut();}, 3000);
+    </script>
+  </div>
+
+  <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+    <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+    <br>
+    <%= form.text_area :body %>
+    <%= form.submit %>
+  <% end %>
+
+
+  <h2>Comments</h2>
+
+  <% (0...post.comments.length-1).each do |index|  %>
+    <p>commenter: <%= User.find_by(id: post.comments[index].user_id).name %>
+
+    <p>Comment:</p>
+    <%= post.comments[index].body %>
+    <% if current_user.id == post.comments[index].user_id %>
+      <%= link_to 'Destroy Comment', [post.comments[index].post, post.comments[index]],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Edit Comment", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
+    <%end%>
+    </p>
+  <% end %>
+
+<% end %>
 
 <hr>
-
 <h2>friends:</h2>
 
-<% if @users.length == 0 %>
+<% if @friends.length == 0 %>
   <p><%= @user.name %> has no friends.</p>
 
 <% else %>
 <div class="friend_names">
-  <% @users.each do |user| %>
-  <a <%="href=#{user.id}"%> ><%= user.name %></a>
+  <% @friends.each do |friend| %>
+  <a <%="href=#{friend.id}"%> ><%= friend.name %></a>
   <% end %>
 </div>
 <% end %>

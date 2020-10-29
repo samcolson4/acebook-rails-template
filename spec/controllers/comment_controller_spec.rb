@@ -7,7 +7,7 @@ describe CommentsController do
      User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
      user = User.find_by(name: "Bob")
      allow(User).to receive(:find_by).and_return(user)
-     Post.create(message: "Hello, world!", user_id: user.id)
+     Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
      my_post = Post.find_by(message: "Hello, world!")
 
      post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
@@ -18,7 +18,7 @@ describe CommentsController do
      User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
      user = User.find_by(name: "Bob")
      allow(User).to receive(:find_by).and_return(user)
-     Post.create(message: "Hello, world!", user_id: user.id)
+     Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
      my_post = Post.find_by(message: "Hello, world!")
 
      post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
@@ -31,7 +31,7 @@ describe CommentsController do
      User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
      user = User.find_by(name: "Bob")
      allow(User).to receive(:find_by).and_return(user)
-     Post.create(message: "Hello, world!", user_id: user.id)
+     Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
      my_post = Post.find_by(message: "Hello, world!")
      post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
      comment = Comment.find_by(body: "This is our comment")
@@ -46,7 +46,7 @@ describe CommentsController do
       User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
       user = User.find_by(name: "Bob")
       allow(User).to receive(:find_by).and_return(user)
-      Post.create(message: "Hello, world!", user_id: user.id)
+      Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
       my_post = Post.find_by(message: "Hello, world!")
       post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
       comment = Comment.find_by(body: "This is our comment")
@@ -59,7 +59,7 @@ describe CommentsController do
       User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
       user = User.find_by(name: "Bob")
       allow(User).to receive(:find_by).and_return(user)
-      Post.create(message: "Hello, world!", user_id: user.id)
+      Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
       my_post = Post.find_by(message: "Hello, world!")
       post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
       comment = Comment.find_by(body: "This is our comment")
@@ -72,7 +72,7 @@ describe CommentsController do
       User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
       user = User.find_by(name: "Bob")
       allow(User).to receive(:find_by).and_return(User.new)
-      Post.create(message: "Hello, world!", user_id: user.id)
+      Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
       my_post = Post.find_by(message: "Hello, world!")
       post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
       comment = Comment.find_by(body: "This is our comment")
@@ -80,14 +80,14 @@ describe CommentsController do
       patch :update, params: {post_id: my_post.id, id: comment.id, comment: { body: "New Comment", user_id: user.id } }
       expect(response).to have_http_status(403)
     end
-
   end
+
   describe "GET /posts/:post_id/comments/:id" do
     it "responds with 200" do
       User.create(name: "Bob", email: "bob@bob.com", password: "1234567")
       user = User.find_by(name: "Bob")
       allow(User).to receive(:find_by).and_return(user)
-      Post.create(message: "Hello, world!", user_id: user.id)
+      Post.create(message: "Hello, world!", user_id: user.id, posted_to_id: user.id)
       my_post = Post.find_by(message: "Hello, world!")
       post :create, params: { post_id: my_post.id, comment: { body: "This is our comment", user_id: user.id } }
       comment = Comment.find_by(body: "This is our comment")
