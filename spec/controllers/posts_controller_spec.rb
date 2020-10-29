@@ -93,9 +93,7 @@ RSpec.describe PostsController, type: :controller do
   end
 end
 
-#TODO: update our controller test to be able to pass in a user_id in our new column called 'posted_to'
-#TODO: create a new db migration to add thee column
-#TODO: make sure we add the alis of user_id to the user_wall_id like the requester_id task
+
 #TODO: feature test be able to navigate to your wall and make a post and for it to show on your wall. (wall here means your profile page)
 #TODO: feature test for being able to make a post on the main page and it show on your individual wall
 #TODO: feature test where another user posts on your wall and it shows up

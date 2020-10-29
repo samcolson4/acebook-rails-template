@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     friend_ids = unique_ids(@user)
-    @users = user_names(friend_ids, @user)
+    @friends = user_names(friend_ids, @user)
+    @profile_posts = get_profile_posts(params[:id])
   end
 
   private
@@ -49,6 +50,10 @@ class UsersController < ApplicationController
     }
     users.delete(user)
     users
+  end
+
+  def get_profile_posts(profile_id)
+    Post.where("posted_to_id = ?", [profile_id])
   end
 
 end
