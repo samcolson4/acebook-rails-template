@@ -134,7 +134,7 @@ $('html, body').animate({
 <% else %>
 <div class="friend_names">
   <% @friends.each do |friend| %>
-  <a <%="href=#{friend.id}"%> ><%= friend.name %></a>
+  <p><a <%="href=#{friend.id}"%> ><%= friend.name %></a></p>
   <% end %>
 </div>
 <% end %>
