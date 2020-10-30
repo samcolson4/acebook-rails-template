@@ -7,7 +7,7 @@ feature 'Add friend' do
     click_link("Log out")
     sign_up_as_potato
     visit "/users/#{requestee.id}"
-    click_button("Add Friend")
+    click_button("add friend")
     expect(page).to have_content("You are friends with Bob.")
     expect(page).to have_current_path("/users/#{requestee.id}")
   end

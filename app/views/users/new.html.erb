@@ -1,3 +1,4 @@
+<div id="sign_up">
 <h2>sign up</h2>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -15,11 +16,11 @@
 
 <%= form_for @user, html: {autocomplete: "off" } do |form|%>
   <%= form.label :name%> <br>
-  <%= form.text_field :name%> <br>
+  <%= form.text_field :name%> <br><br>
   <%= form.label :email%><br>
-  <%= form.email_field :email %><br>
+  <%= form.email_field :email %><br><br>
   <%= form.label :password %><br>
-  <%= form.password_field :password %><br>
-  <%= form.submit %>
+  <%= form.password_field :password %><br><br>
+  <%= form.submit 'sign up', :class => "button" %>
 <%end%>
-
+</div>

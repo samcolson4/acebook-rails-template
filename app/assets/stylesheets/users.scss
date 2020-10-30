@@ -1,3 +1,70 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sign_up {
+  margin-top: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  border:2px solid #3b5998;
+  -webkit-box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
+  padding: 4em;
+  text-align: center;
+  max-width: 10em;
+}
+
+.friend_button {
+  background-color: rgb(100, 194, 84);
+  border: 3px solid rgb(100, 194, 84);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 16px;
+  min-width: 10em;
+  transition: 0.5s;
+}
+
+.friend_button:hover {
+  border: 3px solid rgb(100, 194, 84);
+  background-color: white;
+  color: black;
+}
+
+.container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  max-width: 75em;
+}
+
+.left-half {
+  display: table-cell;
+  padding-right: 3em;
+  width: fixed;
+}
+
+.right-half {
+  display: table-cell;
+  border-left: 2px solid #3b5998;
+  padding-left: 3em;
+  // padding-right: 5em;
+}
+
+.right-half h2 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+a:visited {
+  color: #3b5998;;
+
+}
