@@ -3,7 +3,7 @@
 
 
 ## Quickstart
-#Databases
+# Databases
 ```bash
 $ brew install postgresql
 $ brew services start postgresql
