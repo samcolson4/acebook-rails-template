@@ -2,23 +2,25 @@
 
 <h2><%= @user.name  %>'s profile</h2>
 
-  <div class="left-half">
 
 
 <% if existing_friendship?(current_user, @user) %>
-  You are friends with <%= @user.name %>.
+    <p>You are friends with <%= @user.name %>.</p>
+
 
 <% elsif current_user.id != @user.id %>
   <%= button_to 'add friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "friend_button" %>
+  <br>
 
 <% end %>
 <section class="container">
+<div class="left-half">
 <%= render "posts/post_form" %>
 <br>
 <%= render "posts/posts_list" %>
 <br>
 <br>
-
+</div>
 <div class="right-half">
 
 <h2><%= @user.name %>'s friends:</h2>
