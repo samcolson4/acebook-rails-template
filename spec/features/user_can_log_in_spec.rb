@@ -21,7 +21,7 @@ feature 'Log in' do
   scenario "A user that has not signed up cannot log in" do
     log_in
     expect(page).not_to have_content("Welcome Bob")
-    expect(page).to have_content("login")
+    expect(page).to have_content("log in")
   end
 
 
