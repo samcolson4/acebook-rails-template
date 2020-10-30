@@ -1,11 +1,12 @@
+<div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
-  <%= form.label :message %> <br>
-  <%= form.text_area :message, placeholder: "Make a new post" %>
-  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+  <%= form.text_area :message, placeholder: "Make a new post", class: "text_area_post", id: "post_test_area" %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> 
   <% if @user == nil %>
     <%= form.hidden_field :posted_to_id, :value => current_user.id %> <br>
   <% else %>
     <%= form.hidden_field :posted_to_id, :value => @user.id %> <br>
   <% end %>
-  <%= form.submit "Submit" %>
+  <%= form.submit "post", id: "post_button" %>
 <% end %>
+</div>

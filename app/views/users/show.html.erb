@@ -1,20 +1,27 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<%= @user.name  %>'s Profile Page
+<h2><%= @user.name  %>'s profile</h2>
+
+  <div class="left-half">
+
 
 <% if existing_friendship?(current_user, @user) %>
-  <p>You are friends with <%= @user.name %>.</p>
+  You are friends with <%= @user.name %>.
 
 <% elsif current_user.id != @user.id %>
-  <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
+  <%= button_to 'add friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "friend_button" %>
 
 <% end %>
-<hr>
-<h2>posts:</h2>
+<section class="container">
 <%= render "posts/post_form" %>
+<br>
 <%= render "posts/posts_list" %>
-<hr>
-<h2>friends:</h2>
+<br>
+<br>
+
+<div class="right-half">
+
+<h2><%= @user.name %>'s friends:</h2>
 
 <% if @friends.length == 0 %>
   <p><%= @user.name %> has no friends.</p>
@@ -22,7 +29,9 @@
 <% else %>
 <div class="friend_names">
   <% @friends.each do |friend| %>
-  <a <%="href=#{friend.id}"%> ><%= friend.name %></a>
+  <p><a <%="href=#{friend.id}"%> ><%= friend.name %></a></p>
   <% end %>
 </div>
 <% end %>
+</div>
+</section>

@@ -4,8 +4,8 @@ feature "View posts chronologically" do
   scenario "posts are shown newest first on the newsfeed" do
     sign_up_as_potato
     make_post
-    fill_in "Message", with: "Hello, planet!"
-    click_button "Submit"
+    fill_in "post_test_area", with: "Hello, planet!"
+    click_button "post"
     expect("Hello, planet!").to appear_before("Hello, world!", only_text: true)
   end
 
@@ -13,8 +13,8 @@ feature "View posts chronologically" do
     sign_up_as_potato
     user = User.find_by(name: "Potato")
     make_post
-    fill_in "Message", with: "Hello, planet!"
-    click_button "Submit"
+    fill_in "post_test_area", with: "Hello, planet!"
+    click_button "post"
     visit "/users/#{user.id}"
     expect("Hello, planet!").to appear_before("Hello, world!", only_text: true)
   end
