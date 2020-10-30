@@ -1,8 +1,11 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<%= @user.name  %>'s Profile Page
+<h2><%= @user.name  %>'s profile</h2>
 
-<% if existing_friendship?(current_user, @user) %> <br>
+  <div class="left-half">
+
+
+<% if existing_friendship?(current_user, @user) %>
   You are friends with <%= @user.name %>.
 
 <% elsif current_user.id != @user.id %>
@@ -12,7 +15,6 @@
 <br>
 <br>
 <section class="container">
-  <div class="left-half">
 
 <div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
@@ -31,7 +33,7 @@
 
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
-    <p class="post_time"><%= post.updated_at %></p>
+    <p class="post_time"><%= post.updated_at.strftime('%a %d %b %Y')%></p>
     <% if current_user.id == post.user_id %>
           <div class="delete_edit"><%= link_to 'delete', post_path(post),
           method: :delete,

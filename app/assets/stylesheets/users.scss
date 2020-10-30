@@ -16,8 +16,8 @@
 }
 
 .friend_button {
-  background-color: #3b5998;
-  border: none;
+  background-color: rgb(100, 194, 84);
+  border: 3px solid rgb(100, 194, 84);
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -31,8 +31,9 @@
 }
 
 .friend_button:hover {
-  background-color: rgb(100, 194, 84);
-  color: white;
+  border: 3px solid rgb(100, 194, 84);
+  background-color: white;
+  color: black;
 }
 
 .container {
@@ -44,17 +45,21 @@
 
 .left-half {
   display: table-cell;
-  padding-right: 2em;
+  padding-right: 3em;
   width: fixed;
 }
 
 .right-half {
   display: table-cell;
   border-left: 2px solid #3b5998;
-  padding-left: 2em;
-  padding-right: 5em;
+  padding-left: 3em;
+  // padding-right: 5em;
 }
 
 .right-half h2 {
+  font-weight: 300;
+}
+
+h3 {
   font-weight: 300;
 }
