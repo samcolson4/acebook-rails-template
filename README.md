@@ -31,13 +31,13 @@ First, clone this repository. Then:
 
 
 ## Running Tests
-- from root folder, run the following command
+from root folder, run the following command
 ```bash
->  $ rspec 
+$  $ rspec 
 ```
 ## Running Acebook
 from root folder, run the following command
 ```bash
-> rails s
+$ rails s
 ```
 In your browser, navigate to http://localhost:3000/ 
