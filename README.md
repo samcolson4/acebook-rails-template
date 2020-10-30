@@ -26,3 +26,7 @@ First, clone this repository. Then:
 
 > Run rails_best_practices in root folder of app: rails_best_practices . -c config/rails_best_practices.yml  
 ```
+
+## Running Tests
+from root folder
+>  $ rspec 
