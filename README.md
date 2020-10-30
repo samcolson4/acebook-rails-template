@@ -1,7 +1,7 @@
 # AceBook
 ![Build Status](https://api.travis-ci.com/samcolson4/acebook-team-rex.svg?branch=master)
 
-[name of section](#section) | [name of section](#section) | [Team Rex](#Team-Rex) | [Technologies](#Technologies) 
+[Quickstart](#Quickstart) | [Running Tests](#Running Tests) | [Running Tests](#Running Tests) | [Team Rex](#Team-Rex) | [Technologies](#Technologies) 
 
 ### This project is currently deployed on Heroku <br>
 ### Link: https://acebook-trex.herokuapp.com/
