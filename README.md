@@ -13,6 +13,7 @@ The timeframe for this project was 2 weeks.
 
 ### Sign up 
 ![Sign up](https://i.imgur.com/rM9y0g7.gif)
+
 ![Process flow - sign up](https://app.lucidchart.com/publicSegments/view/e9ae1bf5-25d4-4e2d-b46d-8d6586f7ddd4/image.jpeg)
 ### Log in
 ![Login](https://imgur.com/0SrD34w.gif)
@@ -20,14 +21,21 @@ The timeframe for this project was 2 weeks.
 ### post on homepage
 ![homepage post](https://imgur.com/dlj0wgd.gif)
 
+![make a post](https://app.lucidchart.com/publicSegments/view/26e846c2-f0c3-4723-8706-daa6e8ec2aeb/image.jpeg)
+
+![view posts](https://app.lucidchart.com/publicSegments/view/f48b2fd4-16e5-4315-9031-6a63dac866d1/image.jpeg)
 ### edit post
 ![edit post](https://imgur.com/D7FqrAG.gif)
+
+![edit post](https://app.lucidchart.com/publicSegments/view/f0ffb18d-a37a-448e-b3a1-7a9806060b41/image.jpeg)
 
 ### Like & comment
 ![like comment](https://imgur.com/GaBIGeP.gif)
 
-### Profile page click through & add friend
+### View profile page & add friend
 ![add friend](https://imgur.com/cW2WTmu.gif)
+
+![add friend](https://app.lucidchart.com/publicSegments/view/1c432959-3c9a-4449-9e19-628c715096b5/image.jpeg)
 
 ### Post on user profile
 ![wall post](https://imgur.com/sBrKzEe.gif)
