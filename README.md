@@ -1,4 +1,6 @@
 # AceBook
+![Build Status](https://api.travis-ci.com/samcolson4/acebook-team-rex.svg?branch=master)
+
 [name of section](#section) | [name of section](#section) | [Team Rex](#Team Rex) | [Technologies](#Technologies) 
 
 ### This project is currently deployed on Heroku <br>
@@ -7,6 +9,33 @@
 A fullstack social media clone web application that demonstrates core functionality of Facebook. 
 Developed using Ruby on Rails with a PostgreSQL database. Users are able to signup, make posts on the main newsfeed, add posts to individual users feeds, make comments on posts, add friends amongst other features. 
 The timeframe for this project was 2 weeks.
+
+## Quickstart
+
+First, clone this repository. Then:
+
+```bash
+> bundle install
+> bin/rails db:create
+> bin/rails db:migrate
+
+> bundle exec rspec # Run the tests to ensure it works
+>  # Start the server at localhost:3000
+
+> Run rails_best_practices in root folder of app: rails_best_practices . -c config/rails_best_practices.yml  
+```
+
+## Running Tests
+from root folder, run the following command
+```bash
+$ rspec 
+```
+## Running Acebook
+from root folder, run the following command
+```bash
+$ bin/rails server
+```
+In your browser, navigate to http://localhost:3000/ 
 
 ## Design and Features 
 
