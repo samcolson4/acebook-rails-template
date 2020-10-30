@@ -24,7 +24,7 @@ $ psql postgres
 $ bundle exec rspec # Run the tests to ensure it works
 $ rails s #Start the server at localhost:3000
 
-$ Run rails_best_practices in root folder of app: rails_best_practices . -c config/rails_best_practices.yml
+$ Run rails_best_practices in root folder of app
 ```
 
 ## Running Tests
