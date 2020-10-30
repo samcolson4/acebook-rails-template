@@ -13,6 +13,7 @@
 //= require rails-ujs
 
 //= require konami.js
+//= require teamRexEasterEgg.js
 scrollToLastComment = (urlPath) => {
   $(".comments_" + urlPath).show()
 $('html, body').animate({

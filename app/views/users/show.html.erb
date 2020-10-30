@@ -1,27 +1,30 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<%= @user.name  %>'s Profile Page
+<h2><%= @user.name  %>'s profile</h2>
+
+  <div class="left-half">
+
 
 <% if existing_friendship?(current_user, @user) %>
-  <p>You are friends with <%= @user.name %>.</p>
+  You are friends with <%= @user.name %>.
 
 <% elsif current_user.id != @user.id %>
-  <%= button_to 'Add Friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "button" %>
+  <%= button_to 'add friend', friends_path({ friend: { requester_id: current_user.id, requestee_id: @user.id } }), method: :post, :class => "friend_button" %>
 
 <% end %>
-<hr>
+<br>
+<br>
+<section class="container">
 
-
-
-
-<h2>posts:</h2>
+<div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
-  <%= form.label :message %> <br>
-  <%= form.text_area :message, placeholder: "Make a new post" %>
-  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-  <%= form.hidden_field :posted_to_id, :value => @user.id %> <br>
-  <%= form.submit "Submit" %>
+  <%= form.text_area :message, placeholder: "Make a new post", class: "text_area_post", id: "post_test_area" %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> 
+  <%= form.hidden_field :posted_to_id, :value => @user.id %>
+  <%= form.submit "post", id: "post_button" %>
 <% end %>
+</div>
+<br>
 
 <div class="news_feed">
   <% @profile_posts.each do |post| %>
@@ -30,7 +33,7 @@
 
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
-    <p class="post_time"><%= post.updated_at %></p>
+    <p class="post_time"><%= post.updated_at.strftime('%a %d %b %Y %k:%M%P')%></p>
     <% if current_user.id == post.user_id %>
           <div class="delete_edit"><%= link_to 'delete', post_path(post),
           method: :delete,
@@ -39,12 +42,12 @@
         <% end %>
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
-    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
+    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %>
     
-      
-      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments</h3> 
-
+    <div class="comment_toggles">      
+      <h3 id="comment_toggle_<%=post.id%>">comments ◂</h3>   
+      <h3 id="comment_toggle_off_<%=post.id%>">comments ▾</h3> 
+    </div>
       
     <div class="comments_<%=post.id%>">
     
@@ -117,13 +120,13 @@ $('html, body').animate({
   scrollTop: $(".comments_<%=@url_path_id%>").offset().top
 });
 </script>
+</div>
 
 
 
+<div class="right-half">
 
-
-<hr>
-<h2>friends:</h2>
+<h2><%= @user.name %>'s friends:</h2>
 
 <% if @friends.length == 0 %>
   <p><%= @user.name %> has no friends.</p>
@@ -131,7 +134,9 @@ $('html, body').animate({
 <% else %>
 <div class="friend_names">
   <% @friends.each do |friend| %>
-  <a <%="href=#{friend.id}"%> ><%= friend.name %></a>
+  <p><a <%="href=#{friend.id}"%> ><%= friend.name %></a></p>
   <% end %>
 </div>
 <% end %>
+</div>
+</section>

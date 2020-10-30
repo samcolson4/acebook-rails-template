@@ -1,15 +1,15 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <h2>Welcome, <%= current_user.name %></h2>
-
+<div id="row_form">
 <%= form_for @post, html: { autocomplete: "off" } do |form| %>
-  <%= form.label :message %> <br>
-  <%= form.text_area :message, placeholder: "Make a new post" %>
-  <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-  <%= form.hidden_field :posted_to_id, :value => current_user.id %> <br>
-  <%= form.submit "Submit" %>
+  <%= form.text_area :message, placeholder: "Make a new post", class: "text_area_post", id: "post_test_area" %>
+  <%= form.hidden_field :user_id, :value => current_user.id %> 
+  <%= form.hidden_field :posted_to_id, :value => current_user.id %>
+  <%= form.submit "post", id: "post_button" %>
 <% end %>
-
+</div>
+<br>
 <div class="news_feed">
   <% @posts.each do |post| %>
     <div class="post">
@@ -17,7 +17,7 @@
 
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
-    <p class="post_time"><%= post.updated_at %></p>
+    <p class="post_time"><%= post.updated_at.strftime('%a %d %b %Y %k:%M%P')%></p>
     <% if current_user.id == post.user_id %>
           <div class="delete_edit"><%= link_to 'delete', post_path(post),
           method: :delete,
@@ -26,11 +26,15 @@
         <% end %>
     <label id=<%="post_flash_" + post.id.to_s %>  style="color:darksalmon; font-style:italic; font-size:85%;"> <%=flash[post.id.to_s]%></label>
 
-    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %> 
-      
-      <h3 id="comment_toggle_<%=post.id%>">comments ▿</h3>   
-      <h3 id="comment_toggle_off_<%=post.id%>">comments  ▴ </h3> 
-  
+    <div class="like"><%= button_to "👍 #{post.likes.count} ", post_likes_path(:post_id => post.id), method: :post, :class => "like_button" %>   
+    </div>  
+    
+
+   <div class="comment_toggles">      
+      <h3 id="comment_toggle_<%=post.id%>">comments ◂</h3>   
+      <h3 id="comment_toggle_off_<%=post.id%>">comments ▾</h3> 
+    </div>
+
     <div class="comments_<%=post.id%>">
     
       <script>
@@ -41,30 +45,29 @@
         
         <div class="comment">
           <p><span class="user_comment"><a <%="href=/users/#{post.comments[index].user_id}"%> > <%= User.find_by(id: post.comments[index].user_id).name %>:</span> </a>
-            <%= post.comments[index].body %> </p><p> </p>
-          <p>
+            <%= post.comments[index].body %> </p>
+         
             <% if current_user.id == post.comments[index].user_id %>
               <%= link_to 'delete', [post.comments[index].post, post.comments[index]],
               method: :delete,
               data: { confirm: 'Are you sure?' } %> |
               <%= link_to "edit", edit_post_comment_path(:id => post.comments[index].id, :post_id => post.id) %>
             <%end%>
-          </p>
-      </div>
+         
+        </div>
       
       <% end %>  
       <div class="comment_box">
-      <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-        <%= form.hidden_field :user_id, :value => current_user.id %> <br>
-        <br>
-        <%= form.text_area :body, class: 'comment_text' %>
-        <%= form.submit :comment, class: 'comment_submit' %>
-        <% end %>
+        <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+          <%= form.hidden_field :user_id, :value => current_user.id %> <br>
+          <br>
+          <%= form.text_area :body, class: 'comment_text' %>
+          <%= form.submit :comment, class: 'comment_submit' %>
+          <% end %>
       </div>  
-    </div>
+  </div>
   </div>
 
-  </div>
   <script>
           setListeners(<%=post.id%>)
   </script>

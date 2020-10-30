@@ -16,7 +16,7 @@ feature "Timeline" do
   scenario "can submit post and see date of submission" do
     sign_up
     make_post
-    expect(page).to have_content(/\d{4}-\d{2}-\d{2}/)
+    expect(page).to have_content(/\d{1} [A-Z][a-z]{2} \d{4}/)  
   end
 
   scenario "User can make a post on their own profile page and view it" do
