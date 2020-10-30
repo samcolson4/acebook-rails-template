@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "Signup" do
   scenario "Can sign up with name, email and password" do
     visit "/welcome"
-    click_button "Sign Up"
+    click_button "sign up"
     fill_in "Name", with: "Bob"
     fill_in "Email", with: "bob@test.com"
     fill_in "Password", with: "Bobobob"
@@ -13,7 +13,7 @@ feature "Signup" do
 
   scenario "Displays error when name, email or password not provided" do
     visit "/welcome"
-    click_button "Sign Up"
+    click_button "sign up"
     fill_in "Name", with: "Bob"
     fill_in "Password", with: "Bobobob"
     click_button "sign up"    

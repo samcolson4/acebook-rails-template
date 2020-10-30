@@ -4,7 +4,7 @@ feature 'Log in' do
   scenario "A registered user can log in" do
     sign_up
     click_link "Log out"
-    click_button "Log In"
+    click_button "log in"
     fill_in "Email", with: "bob@test.com"
     fill_in "Password", with: "Bobobob"
     click_button "log in"
@@ -28,7 +28,7 @@ feature 'Log in' do
   scenario "user is told if email is incorrect" do 
     sign_up 
     click_link "Log out"
-    click_button "Log In"
+    click_button "log in"
     fill_in "Email", with: "potatoman@potato.pot"
     fill_in "Password", with: "Bobobob"
     click_button "log in"
@@ -41,7 +41,7 @@ feature 'Log in' do
   scenario "user told if password is incorrect" do
     sign_up 
     click_link "Log out"
-    click_button "Log In"
+    click_button "log in"
     fill_in "Email", with: "bob@test.com"
     fill_in "Password", with: "notMyPassword"
     click_button "log in"
