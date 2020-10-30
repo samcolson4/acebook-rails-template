@@ -282,6 +282,25 @@
   max-width: 10em;
 }
 
+input {
+  border-radius: 16px;
+  border: 1px solid #3b5998;
+  padding: 0.7em;
+  margin-top: 0.4em;
+  background-color: white;
+}
+
+input:hover {
+  -webkit-box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39); 
+  box-shadow: -2px 1px 10px -3px rgba(0,0,0,0.39);
+  transition: 0.5s;
+}
+
+input:-webkit-autofill {
+  background-color: white;
+}
+
+
 @keyframes drop{
 
     from {
