@@ -33,7 +33,7 @@
 
     <p class="message"><%= post.message %> </p> 
     <p class="edited"><%= "edited" if post.updated_at != post.created_at %> </p>
-    <p class="post_time"><%= post.updated_at.strftime('%a %d %b %Y')%></p>
+    <p class="post_time"><%= post.updated_at.strftime('%a %d %b %Y %k:%M%P')%></p>
     <% if current_user.id == post.user_id %>
           <div class="delete_edit"><%= link_to 'delete', post_path(post),
           method: :delete,
