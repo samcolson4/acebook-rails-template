@@ -130,7 +130,7 @@ I want to be able to comment on posts
 
 ```bash
 As a user
-So that I can correct spelling mistakes in my comments
+So that I can correct spelling mistakes \in my comments
 I want to edit my comments
 ```
 
@@ -173,7 +173,7 @@ I want to have comments on a dropdown menu
 ![konami code](https://imgur.com/8N8Tz7R.gif)
 ```bash
 As a developer
-So I can provide easter eggs for fellow developers
+So I can provide easter eggs \for fellow developers
 I want to implement a Konami code 
 ```
 
