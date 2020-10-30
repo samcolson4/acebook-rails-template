@@ -44,7 +44,6 @@ It is also running on Heroku [here](https://acebook-trex.herokuapp.com/).
 
 ## Design and Features 
 
-
 ### Sign up 
 ```bash
 As a user
@@ -74,7 +73,6 @@ As a user
 So that I can communicate my thoughts
 I want to make a post
 ```
-
 
 ```bash
 As a user
@@ -218,6 +216,13 @@ Requirements:
 3. We need it to help us, not hinder us. 
 
 We found that Travis met the requirements above and it came recommended by the CEO of rails alongside a straightforward setup process.
+
+### Resources
+- [Controller testing in Rails](https://medium.com/table-xi/whats-up-with-rails-controller-tests-f0ece1fdd9f0)
+- [Rails Toolbox](https://github.com/makersacademy/course/blob/master/engineering_projects/toolbox.md#what-should-we-test-in-a-rails-app)
+- [Rails Docs - Testing Controllers](https://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers)
+- [Adding likes](https://medium.com/full-taxx/how-to-add-likes-to-posts-in-rails-e81430101bc2)
+- [Web development tools](https://github.com/makersacademy/course/blob/master/pills/web_development_tools.md)
 
 ## Team-Rex
 
