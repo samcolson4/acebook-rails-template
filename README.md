@@ -1,3 +1,4 @@
+![Build Status](https://api.travis-ci.com/samcolson4/acebook-team-rex.svg?branch=master) 
 # AceBook
 
 REQUIRED INSTRUCTIONS:
@@ -27,6 +28,16 @@ First, clone this repository. Then:
 > Run rails_best_practices in root folder of app: rails_best_practices . -c config/rails_best_practices.yml  
 ```
 
+
+
 ## Running Tests
-from root folder
+- from root folder, run the following command
+```bash
 >  $ rspec 
+```
+## Running Acebook
+from root folder, run the following command
+```bash
+> rails s
+```
+In your browser, navigate to http://localhost:3000/ 
